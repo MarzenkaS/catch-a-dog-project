@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-marzenkas-catchadogproj-6s0h3jbty3i.ws-eu108.gitpod.io',
+    '.herokuapp.com',
 ]
 
 
