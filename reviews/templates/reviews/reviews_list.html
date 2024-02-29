@@ -12,8 +12,7 @@
     <h1>Reviews list</h1>
     {% for reviews in object_list %}
     <h2>{{reviews}}</h2>
-    <p>Author: {{reviews.author}}</p>
-    <p>Author: {{comment.author}}</p>
+    <p>{{reviews.content}}</p>
     {% endfor %}
 </body>
 
