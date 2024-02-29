@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Reviews(models.Model):
-    slug = models.SlugField(max_length=250, unique=True)
     author = models.ForeignKey(
     User, on_delete=models.CASCADE, related_name="reviews")
     content = models.TextField()
@@ -14,4 +13,27 @@ class Reviews(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return f"written by {self.author}"
+
+
+
+class Comment(models.Model):
+    reviews = models.ForeignKey(
+        Reviews, on_delete=models.CASCADE, related_name="comments")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="commenter")
+    body = models.TextField()
+    approved = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return f"Comment {self.body} by {self.author}"         
     
