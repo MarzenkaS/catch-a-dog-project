@@ -7,3 +7,6 @@ from .models import Reviews, Comment
 class ReviewsList(generic.ListView):
     queryset = Reviews.objects.all()
     template_name = "reviews_list.html"
+
+class CommentList(generic.ListView):
+    queryset = Comment.objects.all()    
