@@ -11,6 +11,7 @@ class Reviews(models.Model):
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     likes = models.ManyToManyField(User, related_name='reviews_like')
+    status = models.IntegerField(choices=STATUS, default=0)
 
     def number_of_likes(self):
         return self.likes.count()

@@ -4,11 +4,10 @@ from django_summernote.admin import SummernoteModelAdmin
 
 
 @admin.register(Reviews)
-class PostAdmin(SummernoteModelAdmin):
+class ReviewsAdmin(SummernoteModelAdmin):
 
-    list_display = ('status')
-    search_fields = ['date', 'user_name']
-    list_filter = ('status',)
+    search_fields = ['date', 'author']
+    list_filter = ('status', 'created_on')
     summernote_fields = ('content',)
 
 
