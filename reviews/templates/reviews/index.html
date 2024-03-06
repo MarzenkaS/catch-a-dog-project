@@ -1,8 +1,14 @@
-{% extends "index.html" %}
+{% extends "base.html" %} 
+{% load static %}
 {% block content %}
-    <h1>Home</h1>
 
 
+<h1>Reviews list</h1>
+{% for reviews in object_list %}
+<h2>{{reviews}}</h2>
+<p>{{reviews.content}}</p>
+{% endfor %}
+ 
 
 
 {% endblock %}
