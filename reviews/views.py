@@ -6,7 +6,9 @@ from .models import Reviews, Comment
 
 class ReviewsList(generic.ListView):
     queryset = Reviews.objects.all()
-    template_name = "reviews_list.html"
+    template_name = "reviews/index.html"
+    paginate_by = 6
+
 
 class CommentList(generic.ListView):
     queryset = Comment.objects.all()    
