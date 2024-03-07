@@ -1,4 +1,6 @@
 from django.contrib import admin
+from .models import About
+from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
 
@@ -6,6 +8,3 @@ from django.contrib import admin
 class AboutAdmin(SummernoteModelAdmin):
 
     summernote_fields = ('content',)
-
-    def __str__(self):
-        return self.title
