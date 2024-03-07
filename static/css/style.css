@@ -1,0 +1,28 @@
+
+/* about html */
+
+.about-gallery {
+    height: 200px;
+    width: 200px;
+}
+
+/* contact on about html */
+
+.contact-about {
+    list-style-type: none;
+    text-decoration: none;
+    
+}
+.fa-instagram {
+    color:  #ec22ac;
+}
+
+.contact-email {
+    text-decoration: underline;
+}
+
+.contact-instagram, .contact-facebook {
+    text-decoration: none;
+    list-style-type: none;
+}
+
