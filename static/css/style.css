@@ -1,8 +1,5 @@
-/*  body */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kanit&family=Lato:wght@300&family=Raleway:wght@300&family=Ubuntu&display=swap')
 
-body {
-    margin-bottom: 15%;
-}
 
 /* about html */
 
@@ -88,8 +85,4 @@ body {
 
 .site-owner {
     padding-bottom: 15px;
-}
-
-.social-icons {
-    
 }
