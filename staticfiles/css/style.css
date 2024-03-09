@@ -1,19 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kanit&family=Lato:wght@300&family=Raleway:wght@300&family=Ubuntu&display=swap')
 
 
-/* about html */
-
-.about-gallery {
-    height: 200px;
-    width: 200px;
-}
-
 /* contact on about html */
 
 .contact-about {
     list-style-type: none;
     text-decoration: none;
-
 }
 
 .fa-instagram {
@@ -38,30 +30,37 @@
     color: blue;
 }
 
-/*  gallery*/
+/* gallery */
+
+
+.about-gallery {
+    height: 200px;
+    width: 200px;
+}
 
 .gallery img {
+   
     padding-top: 15px;
     margin-left: 15%;
 }
 
 .gallery-first {
     margin-right: 15%;
-
 }
 
 .gallery-second {
     margin-right: 15%;
+    margin-bottom: 15%;
 }
 
-/*  footer*/
+/* footer */
 
 .footer {
     background-color: rgb(12, 25, 214);
     width: 100%;
     position: fixed;
-    bottom: 0;  
-    width:100%;
+    bottom: 0;
+    width: 100%;
     height: 15%;
 }
 
