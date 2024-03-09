@@ -26,6 +26,14 @@
     list-style-type: none;
 }
 
+.contact-instagram a {
+    color:  #ec22ac;
+}
+
+.contact-facebook a {
+    color: blue;
+}
+
 /*  gallery*/
 
 .gallery img {
