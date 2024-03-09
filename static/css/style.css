@@ -1,5 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kanit&family=Lato:wght@300&family=Raleway:wght@300&family=Ubuntu&display=swap')
 
+.body {
+    width: 100%;
+}
+
+/* Navigation */
+
+.navbar {
+    background-color: rgb(12, 25, 214);
+}
+
+.nav-item a:hover {
+    border-bottom: 1px solid white;
+    text-decoration-color: black;
+}
+
+.nav-link {
+    color: white;
+}
+
+.nav-link:active {
+    color: black;
+}
+
 
 /* contact on about html */
 
@@ -39,9 +62,8 @@
 }
 
 .gallery img {
-   
     padding-top: 15px;
-    margin-left: 15%;
+    margin-left: 10%;
 }
 
 .gallery-first {
