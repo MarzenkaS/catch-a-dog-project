@@ -8,6 +8,7 @@
 
 .navbar {
     background-color: rgb(12, 25, 214);
+    width: 100%;
 }
 
 .nav-item a:hover {
@@ -63,7 +64,7 @@
 
 .gallery img {
     padding-top: 15px;
-    margin-left: 10%;
+    margin-left:11%;
 }
 
 .gallery-first {
@@ -83,7 +84,8 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 15%;
+    height: 13%;
+    
 }
 
 .footer li {
@@ -107,3 +109,8 @@
 .site-owner {
     padding-bottom: 15px;
 }
+ /* pagination */
+
+ .pagination {
+    margin-bottom: 5%;
+ }
