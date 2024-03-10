@@ -10,22 +10,19 @@ class ReviewsList(generic.ListView):
     paginate_by = 4
 
 
-def reviews_detail(request, slug):
+def reviews_detail(request):
     """
     Display an individual review
 
     """
 
     queryset = Reviews.objects.filter(status=1)
-    reviews = get_object_or_404(queryset, slug=slug)
+    reviews = get_object_or_404(queryset)
 
-    return render(
-        request,
-        "reviews/reviews_detail.html",
+    return render(request, "reviews/reviews_detail.html",
         {"reviews": reviews},
     )
 
-
-
+   
 class CommentList(generic.ListView):
     queryset = Comment.objects.all()    

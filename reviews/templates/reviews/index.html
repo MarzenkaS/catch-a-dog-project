@@ -1,7 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-{% block content %}
 
+
+{% block content %}
 <div class="container-fluid">
     <div class="row">
         <!-- Reviews Column -->
@@ -13,7 +14,8 @@
                         <div class="card-body">
                             <h2>{{reviews}}</h2>
                             <p>{{reviews.content | safe}}</p>
-                            
+                            <a href="{% url 'reviews_detail' %}" class="reviews-link">  
+                            </a>
                             <p class="card-text text-muted h6">{{ reviews.created_on}}</p>
                         </div>
                     </div>
