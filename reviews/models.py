@@ -10,11 +10,11 @@ class Reviews(models.Model):
     User, on_delete=models.CASCADE, related_name="reviews")
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    likes = models.ManyToManyField(User, related_name='reviews_like')
+    likes = models.ManyToManyField(User, related_name='reviews_likes')
     status = models.IntegerField(choices=STATUS, default=0)
 
-    def number_of_likes(self):
-        return self.likes.count()
+    def number_of_reviews_likes(self):
+        return self.reviews_likes.count()
 
     class Meta:
         ordering = ["-created_on"]

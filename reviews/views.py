@@ -18,11 +18,16 @@ def reviews_detail(request):
 
     queryset = Reviews.objects.filter(status=1)
     reviews = get_object_or_404(queryset)
+    comments = reviews.comments.all().order_by("-created_on")
+    comment_count = reviews.comments.filter(approved=True).count()
+    reviews_likes.count = reviews.filter(approved=True).likes.count()
+
 
     return render(request, "reviews/reviews_detail.html",
-        {"reviews": reviews},
+        {"reviews": reviews
+        "comments": comments,
+        "comment_count": comment_count,
+        "reviews_likes.count": reviews_likes.count,
+        },
     )
-
-   
-class CommentList(generic.ListView):
-    queryset = Comment.objects.all()    
+ 
