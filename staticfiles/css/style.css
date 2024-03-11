@@ -33,6 +33,17 @@ a:hover {
     color: black;
 }
 
+/* reviews_detail */
+
+.background-image img {
+    
+    width: 600px;
+    height: 75%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 45%;
+}
+
 
 /* contact on about html */
 

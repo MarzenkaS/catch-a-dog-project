@@ -6,11 +6,8 @@
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
-            <div class="col-md-6 masthead-text">
-                <p class="post-subtitle">{{ review.author }} | {{ review.created_on }}</p>
-            </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/background.jpg' %}" class="scale" alt="placeholder">
+            <div class="d-none d-md-block col-md-6 masthead-image background-image">
+                <img src="{% static 'images/background.jpg' %}" class="img-fluid" alt="placeholder">
             </div>
         </div>
     </div>
@@ -19,6 +16,9 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
+                <div class="col-md-6 masthead-text text-start">
+                    <p class="post-subtitle">{{ review.author }} | {{ review.created_on }}</p>
+                </div>
                 <p class="card-text">
                     {{ review.content | safe }}
                 </p>
