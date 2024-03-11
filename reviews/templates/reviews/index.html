@@ -8,37 +8,39 @@
         <!-- Reviews Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
+                <h2 class="text-center">Welcome to my Catch a <i class="fa-solid fa-dog" style="color: #2f15f4;"></i>
+                    website!<br>Here you can read all reviews or leave yours after logging in.</h2>
                 {% for reviews in object_list %}
                 <a href="{% url 'reviews_detail' reviews.id %}" class="reviews-link">
-                        <div class="card mb-4">
-                            <div class="card-body">
-                                <h2>{{reviews}}</h2>
-                                <p>{{reviews.content | safe}}</p>
-                                <p class="card-text text-muted h6">{{ reviews.created_on}}</p>
-                            </div>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h3>{{reviews}}</h3>
+                            <p>{{reviews.content | safe}}</p>
+                            <p class="card-text text-muted h6">{{ reviews.created_on}}</p>
                         </div>
                     </div>
-                    {% if forloop.counter|divisibleby:3 %}{% endif %}
-                    {% endfor %}
-                </a>
             </div>
+            {% if forloop.counter|divisibleby:3 %}{% endif %}
+            {% endfor %}
+            </a>
         </div>
     </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li>
-                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
-            </li>
-            {% endif %} {% if page_obj.has_next %}
-            <li>
-                <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
-            </li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
+</div>
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li>
+            <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+        </li>
+        {% endif %} {% if page_obj.has_next %}
+        <li>
+            <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
 </div>
 
 {% endblock %}

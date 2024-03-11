@@ -33,6 +33,13 @@ a:hover {
     color: black;
 }
 
+/* reviews - home page */
+
+h2 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
 /* reviews_detail */
 
 .background-image img {
