@@ -40,29 +40,31 @@
 </div>
 
 <!-- Gallery -->
-<div class="row text-center gallery">
 
-    <div class="col-12 text-center d-flex flex-row gallery-first">
+    <div class="row text-center gallery">
 
-        <img src="{% static 'images/foto1.jpg' %}" class="about-gallery">
+        <div class="col-12 text-center d-flex flex-row gallery-first">
 
-        <img src="{% static 'images/foto2.jpg' %}" class="about-gallery">
+            <img src="{% static 'images/foto1.jpg' %}" class="about-gallery">
 
-        <img src="{% static 'images/foto3.jpg' %}" class="about-gallery">
+            <img src="{% static 'images/foto2.jpg' %}" class="about-gallery">
+
+            <img src="{% static 'images/foto3.jpg' %}" class="about-gallery">
+
+        </div>
+
+        <div class="col-12 text-center d-flex flex-row gallery-second">
+
+            <img src="{% static 'images/foto4.jpg' %}" class="about-gallery">
+
+            <img src="{% static 'images/foto5.jpg' %}" class="about-gallery">
+
+            <img src="{% static 'images/foto6.jpg' %}" class="about-gallery">
+
+        </div>
 
     </div>
 
-    <div class="col-12 text-center d-flex flex-row gallery-second">
-
-        <img src="{% static 'images/foto4.jpg' %}" class="about-gallery">
-
-        <img src="{% static 'images/foto5.jpg' %}" class="about-gallery">
-
-        <img src="{% static 'images/foto6.jpg' %}" class="about-gallery">
-
-    </div>
-
-</div>
 
 </div>
 {% endblock content %}
