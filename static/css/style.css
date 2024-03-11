@@ -61,8 +61,18 @@ h2 {
     background-color: white;
 }
 
+/* about me page and image */
 
-/* contact on about html */
+.image-about img {
+    height: 300px;
+    width: 350px;
+}
+
+.about-me {
+    text-align: center;
+}
+
+/* contact on about me page */
 
 .contact-about {
     list-style-type: none;
