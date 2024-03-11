@@ -44,6 +44,16 @@ a:hover {
     margin-left: 45%;
 }
 
+.fa-heart {
+    color: red;
+}
+
+.btn-like {
+    border: none;
+    text-decoration: none;
+    background-color: white;
+}
+
 
 /* contact on about html */
 
