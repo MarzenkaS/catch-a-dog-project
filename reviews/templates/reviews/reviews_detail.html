@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-md-6 masthead-text">
-                <p class="post-subtitle">{{ reviews.author }} | {{ reviews.created_on }}</p>
+                <p class="post-subtitle">{{ review.author }} | {{ review.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <img src="{% static 'images/background.jpg' %}" class="scale" alt="placeholder">
@@ -20,7 +20,7 @@
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
                 <p class="card-text">
-                    {{ reviews.content | safe }}
+                    {{ review.content | safe }}
                 </p>
             </div>
         </div>
@@ -31,11 +31,12 @@
             <strong class="text-secondary">
                 <i class="far fa-comments"></i> {{ comment_count }}
             </strong>
-        </div>
-        <div class="col-12">
-            <hr>
+            <strong class="text-secondary">
+                <i class="far fa-heart"></i> {{ review_likes  }}
+            </strong>
         </div>
     </div>
+    <!-- Displaying count of likes -->
     <!-- Displaying Comments -->
     <div class="row">
         <div class="col-md-8 card mb-4  mt-3 ">
@@ -54,6 +55,7 @@
                     </p>
                     <div id="comment{{ comment.id }}">
                         {{ comment.body | linebreaks }}
+                        <hr>
                     </div>
                     {% if not comment.approved and comment.author == user %}
                     <p class="approval">

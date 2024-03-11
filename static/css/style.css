@@ -1,7 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kanit&family=Lato:wght@300&family=Raleway:wght@300&family=Ubuntu&display=swap')
+/* @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kanit&family=Lato:wght@300&family=Raleway:wght@300&family=Ubuntu&display=swap') */
 
-.body {
+body {
     width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+a:hover {
+    color: unset;
 }
 
 /* Navigation */

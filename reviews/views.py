@@ -10,24 +10,22 @@ class ReviewsList(generic.ListView):
     paginate_by = 4
 
 
-def reviews_detail(request):
+def reviews_detail(request, pk):
     """
     Display an individual review
 
     """
-
-    queryset = Reviews.objects.filter(status=1)
-    reviews = get_object_or_404(queryset)
-    comments = reviews.comments.all().order_by("-created_on")
-    comment_count = reviews.comments.filter(approved=True).count()
-    reviews_likes.count = reviews.filter(approved=True).likes.count()
-
+    review = get_object_or_404(Reviews, id=pk)
+    comments = review.comments.all().order_by("-created_on")
+    comment_count = review.comments.filter(approved=True).count()
+    review_likes = review.likes.count()
 
     return render(request, "reviews/reviews_detail.html",
-        {"reviews": reviews
-        "comments": comments,
-        "comment_count": comment_count,
-        "reviews_likes.count": reviews_likes.count,
-        },
+        {
+            "review": review,
+            "comments": comments,
+            "comment_count": comment_count,
+            "review_likes": review_likes,
+        }
     )
  
