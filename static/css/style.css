@@ -170,3 +170,19 @@ h2 {
  .pagination {
     margin-bottom: 5%;
  }
+
+ /* buttons */
+
+ .btn-signup {
+    background-color: rgb(12, 25, 214);
+    color: white;
+ }
+
+ .submit {
+    background-color: rgb(12, 25, 214);
+    color: white;
+ }
+ .signup-btn {
+    background-color: rgb(12, 25, 214);
+    color: white;
+ }
