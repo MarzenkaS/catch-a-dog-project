@@ -133,7 +133,8 @@ h2 {
     background-color: rgb(12, 25, 214);
     width: 100%;
     bottom: 0;
-    height: 10%;
+    height: 12%;
+    position: fixed;
 }
 
 .footer li {
