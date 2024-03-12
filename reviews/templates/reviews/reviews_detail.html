@@ -18,7 +18,7 @@
         <div class="col card mb-4  mt-3 left top">
             <div class="card-body">
                 <div class="col-md-6 masthead-text text-start">
-                    <p class="post-subtitle">{{ review.author }} | {{ review.created_on }}</p>
+                    <p class="post-subtitle"><strong>{{ review.author }} | {{ review.created_on }}</strong></p>
                 </div>
                 <p class="card-text">
                     {{ review.content | safe }}
@@ -42,22 +42,22 @@
     <!-- Displaying Comments -->
     <div class="row">
         <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Comments:</h3>
+            <h3 class="text-decoration-underline">Comments:</h3>
             <div class="card-body">
 
                 {% for comment in comments %}
                 <div class="p-2 comments
           {% if not comment.approved and comment.author == user %}
           faded{% elif not comment.approved %} d-none{% endif %}">
-                    <p class="font-weight-bold">
-                        {{ comment.author }}
+                    <p class="font-weight-bold"><strong>
+                        {{ comment.author }} |
                         <span class="font-weight-normal">
                             {{ comment.created_on }}
-                        </span> wrote:
+                        </span> wrote:</strong>
                     </p>
                     <div id="comment{{ comment.id }}">
                         {{ comment.body | linebreaks }}
-                        <hr>
+                    
                     </div>
                     {% if not comment.approved and comment.author == user %}
                     <p class="approval">
@@ -71,6 +71,7 @@
                       comment_id="{{ comment.id }}">Edit</button>
                     {% endif %}
                 </div>
+                <hr>
                 <!-- Our for loop ends here -->
                 {% endfor %}
             </div>
@@ -79,7 +80,7 @@
     <div class="col-md-4 card mb-4 mt-3">
         <div class="card-body">
           {% if user.is_authenticated %}
-          <h3>Leave a comment:</h3>
+          <h3 class="text-decoration-underline">Leave a comment:</h3>
           <p>Posting as: {{ user.username }}</p>
           <form id="commentForm" method="post"
             style="margin-top: 1.3em;">
