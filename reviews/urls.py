@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.ReviewsList.as_view(), name='home'),
     path('reviews_detail/<int:pk>/', views.reviews_detail, name='reviews_detail'),
     path('comments/edit_comment/<int:comment_id>', views.comment_edit, name='comment_edit'),
+    path('comments/delete_comment/<int:comment_id>', views.comment_delete, name='comment_delete'),
 ]
