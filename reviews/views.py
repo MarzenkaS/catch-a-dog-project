@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
+from django.contrib import messages
 from .models import Reviews, Comment
 from .forms import CommentForm
 
@@ -28,6 +29,10 @@ def reviews_detail(request, pk):
             comment.author = request.user
             comment.reviews = review
             comment.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Comment submitted and awaiting approval'
+            )
 
     comment_form = CommentForm()
 
