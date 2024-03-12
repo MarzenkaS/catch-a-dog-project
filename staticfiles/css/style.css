@@ -188,6 +188,11 @@ h2 {
  }
 
 .btn-edit {
+    background-color: green;
+    color: white;
+}
+
+.btn-delete {
     background-color: red;
     color: white;
 }
