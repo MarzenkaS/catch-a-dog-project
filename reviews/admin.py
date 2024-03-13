@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Reviews, Comment
+from .models import Reviews, Comment, Like
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -12,6 +12,5 @@ class ReviewsAdmin(SummernoteModelAdmin):
     list_filter = ('status', 'created_on',)
     
 
-
-# Register your models here.
+admin.site.register(Like)
 admin.site.register(Comment)

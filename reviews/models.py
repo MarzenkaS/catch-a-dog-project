@@ -9,7 +9,7 @@ class Reviews(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviews")
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    likes = models.ManyToManyField(User, default=None, blank=True, related_name='review_likes')
+    likes = models.ManyToManyField(User, default=None, blank=True, related_name='likes')
     status = models.IntegerField(choices=STATUS, default=0) 
 
     def __str__(self):
@@ -23,14 +23,14 @@ class Reviews(models.Model):
         ordering = ["-created_on"]
 
 LIKE_CHOICES = (
-    ('Like', 'Like')
-    ('Unlike', 'Unlike')
+    ('Like', 'Like'),
+    ('Unlike', 'Unlike'),
 )
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    review = models.ForeignKey(Review, on_delete=models.CASCADE)
-    value = moels.CharField(choices=, default='Like', max_lenght=10)
+    reviews = models.ForeignKey(Reviews, on_delete=models.CASCADE)
+    value = models.CharField(choices=LIKE_CHOICES, default='Like')
 
     def __str__(self):
         return str(self.review)
