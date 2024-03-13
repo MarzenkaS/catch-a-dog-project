@@ -46,7 +46,9 @@
             <a class="nav-link
               {% if request.path == about_url %}active{%endif%}" aria-current="page" href="{% url 'about' %}">About</a>
           </li>
+          
           {% if user.is_authenticated %}
+          
           <li class="nav-item">
             <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
               href="{% url 'account_logout' %}">Logout</a>
@@ -99,7 +101,7 @@
   <footer class="footer mt-auto">
     <p class="m-0 text-center text-white site-owner">
       {% block copyright %}
-      Copyright 2023 Marzena Skórska
+      Copyright 2023 | Catch a dog
       {% endblock copyright %}
     </p>
     <p class="m-0 text-center text-white social-icons">

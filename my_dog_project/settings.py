@@ -32,13 +32,14 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-marzenkas-catchadogproj-6s0h3jbty3i.ws-eu108.gitpod.io',
+    '8000-marzenkas-catchadogproj-6s0h3jbty3i.ws-eu110.gitpod.io',
     '.herokuapp.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com",
-    "https://www.gitpod.io/",
-    "https://8000-marzenkas-catchadogproj-6s0h3jbty3i.ws-eu108.gitpod.io"
+    "https://*.gitpod.io",
+    "https://8000-marzenkas-catchadogproj-6s0h3jbty3i.ws-eu108.gitpod.io",
 ]
 
 

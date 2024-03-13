@@ -7,6 +7,8 @@ const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
+const likeButton = document.getElementByClassName("btn-delete");
+
 /* Initializes edit functionality for the provided edit buttons */
 for (let button of editButtons) {
   button.addEventListener("click", (e) => {
@@ -26,3 +28,5 @@ for (let button of deleteButtons) {
     deleteModal.show();
   });
 }
+
+/* Giving functionality to a like button */

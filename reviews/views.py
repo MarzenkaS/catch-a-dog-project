@@ -48,16 +48,16 @@ def reviews_detail(request, pk):
     )
  
 
-def comment_edit(request, comment_id):
+def comment_edit(request, pk, comment_id):
     """
     view to edit comments
     """
     if request.method == "POST":
 
         queryset = Reviews.objects.filter(status=1)
-        review = get_object_or_404(queryset)
+        review = get_object_or_404(queryset, pk=pk)
         comment = get_object_or_404(Comment, pk=comment_id)
-        comment_form = CommentForm(data=request.POST, instance=comment)
+        comment_form = CommentForm(data=request.POST, instance=comment)                       
 
         if comment_form.is_valid() and comment.author == request.user:
             comment = comment_form.save(commit=False)
@@ -68,15 +68,15 @@ def comment_edit(request, comment_id):
         else:
             messages.add_message(request, messages.ERROR, 'Error updating comment!')
 
-    return HttpResponseRedirect(reverse('reviews_detail'))
+    return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
 
 
-def comment_delete(request, comment_id):
+def comment_delete(request, pk, comment_id):
     """
     view to delete comment
     """
     queryset = Reviews.objects.filter(status=1)
-    review = get_object_or_404(queryset, slug=slug)
+    review = get_object_or_404(queryset, pk=pk)
     comment = get_object_or_404(Comment, pk=comment_id)
 
     if comment.author == request.user:
@@ -85,4 +85,10 @@ def comment_delete(request, comment_id):
     else:
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
-    return HttpResponseRedirect(reverse('reviews_detail'))
+    return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
+
+
+def AddReview(request):   
+    """
+    view to add new review
+    """ 
