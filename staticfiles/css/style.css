@@ -56,12 +56,8 @@ h2 {
     margin-left: 45%;
 }
 
-.fa-heart-like {
+.fa-heart {
     color: red;
-}
-
-.fa-heart-unlike {
-    color: black;
 }
 
 .btn-like {

@@ -58,17 +58,11 @@ def like_reviews(request, reviews_id):
         else:
             reviews.obj.likes.add(user)
 
-        like, created = Like.objects.get_or_create(user=user, reviews_id=reviews_id)
-
-        if not created:
-            if like.value == 'Like':
-                like.value = 'Unlike'
-            else:
-                like.value = 'Like'
+        like = Like.objects.get(user=user, reviews_id=reviews_id)
 
         like.save()                  
             
-    return redirect('reviews:reviews_detail')
+    return self.likes.all().count()
 
  
 
