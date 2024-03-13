@@ -7,7 +7,7 @@ const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
-const likeButton = document.getElementByClassName("btn-delete");
+const likeButton = document.getElementByClassName("btn-like");
 
 /* Initializes edit functionality for the provided edit buttons */
 for (let button of editButtons) {
@@ -30,3 +30,13 @@ for (let button of deleteButtons) {
 }
 
 /* Giving functionality to a like button */
+function number_of_likes() {
+    likeButton.addEventListener("click", (e) => {
+        // Update the number of likes for the review
+        let updatedLikesCount = review.likes.count();
+        // Update the display of the number of likes on the button
+        likeButton.innerText = Likes(updatedLikesCount);
+    });
+}
+
+         
