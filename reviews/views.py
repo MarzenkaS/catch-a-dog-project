@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Reviews, Comment
+from .models import Reviews, Comment, Like
 from .forms import CommentForm
 
 # Create your views here.
@@ -20,7 +20,6 @@ def reviews_detail(request, pk):
     """
     review = get_object_or_404(Reviews, id=pk)
     comments = review.comments.all().order_by("-created_on")
-    review_likes = review.likes.count()
     comment_count = review.comments.filter(approved=True).count()
 
     if request.method == "POST":
@@ -43,9 +42,13 @@ def reviews_detail(request, pk):
             "comments": comments,
             "comment_count": comment_count,
             "comment_form": comment_form,
-            "review_likes": review_likes,
         }
     )
+
+
+def like_reviews(request):
+    return redirect('reviews:reviews_detail')
+
  
 
 def comment_edit(request, pk, comment_id):
