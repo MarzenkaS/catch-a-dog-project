@@ -47,14 +47,14 @@ def reviews_detail(request, pk):
     )
 
 
-def like_reviews(request):
-    author = request.user
+def like_reviews(request, reviews_id):
+    user = request.user
     if request.Method == 'POST':
         reviews_id = request.POST.get('reviews_id')
         reviews.obj = Reviews.objects.get(id=reviews_id)
 
         if user in reviews.obj.likes.all():
-            reviews.obj.likes.remove(user)
+            reviews_obj.likes.remove(user)
         else:
             reviews.obj.likes.add(user)
 

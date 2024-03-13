@@ -34,16 +34,17 @@
                 <i class="far fa-comments"></i> {{ comment_count }}
             </strong>
             <strong class="text-secondary"> 
-              <form action="(% url 'reviews:like_reviews' %)" method="POST" class="ui form">
+              <form action="(% url 'reviews:reviews_detail' %)" method="POST" class="ui form">
                 {% csrf_token %}
                   <input type="hidden" name="reviews_id" value="{{ obj.id }}">
                   {% if user not in obj.likes.all %}
-                      <button class="ui button possitive btn-like" name="review_id" type="submit"><i class="fas fa-heart-like"></i></button>
+                      <button class="ui button possitive btn-like" name="review_id" type="submit"><i class="btn-like fa-solid fa-heart"></i>Like</button>
                   {% else %}
-                      <button class="ui button negative btn-unlike" type="submit"><i class="fas fa-heart-unlike"></i></button>
+                      <button class="ui button negative btn-unlike" type="submit">Unlike</button>
                   {% endif %}
+                  {{ obj.likes.all.count }} likes
               </form>
-              <strong>{{ obj.likes.all.count }} likes</strong>  
+              
             </strong>
         </div>
     </div>
