@@ -19,6 +19,7 @@ def reviews_detail(request, pk):
 
     """
     review = get_object_or_404(Reviews, id=pk)
+    author = request.user
     comments = review.comments.all().order_by("-created_on")
     comment_count = review.comments.filter(approved=True).count()
 
@@ -47,6 +48,26 @@ def reviews_detail(request, pk):
 
 
 def like_reviews(request):
+    author = request.user
+    if request.Method == 'POST':
+        reviews_id = request.POST.get('reviews_id')
+        reviews.obj = Reviews.objects.get(id=reviews_id)
+
+        if user in reviews.obj.likes.all():
+            reviews.obj.likes.remove(user)
+        else:
+            reviews.obj.likes.add(user)
+
+        like, created = Like.objects.get_or_create(user=user, reviews_id=reviews_id)
+
+        if not created:
+            if like.value == 'Like':
+                like.value = 'Unlike'
+            else:
+                like.value = 'Like'
+
+        like.save()                  
+            
     return redirect('reviews:reviews_detail')
 
  
