@@ -139,4 +139,15 @@ def review_delete(request, event_id, review_id):
     """
     view to delete reviews
     """
-    if request.method == "POST":        
+    queryset = Event.objects.all()
+    event = get_object_or_404(queryset, pk=event_id)
+    review = get_object_or_404(Review, pk=review_id)
+    review_form = ReviewForm(data=request.POST, instance=review) 
+
+    if comment.author == request.user:
+        review.delete()
+        messages.add_message(request, messages.SUCCESS, 'Review deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own review!')
+
+    return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))      
