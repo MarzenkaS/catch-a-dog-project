@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -110,3 +110,33 @@ def AddReview(request):
     """
     view to add new review
     """ 
+
+
+def review_edit(request, event_id, review_id):
+    """
+    view to edit reviews
+    """
+    if request.method == "POST":
+
+        queryset = Event.objects.all()
+        event = get_object_or_404(queryset, pk=event_id)
+        review = get_object_or_404(Review, pk=review_id)
+        review_form = ReviewForm(data=request.POST, instance=review)  
+
+        if review_form.is_valid() and review.reviewer == request.user:
+            review = review_form.save(commit=False)
+            review.reviewer = request.user
+            review.event = event
+            review.save()
+            messages.add_message(request, messages.SUCCESS, 'Review Updated!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating Review!')
+
+    return HttpResponseRedirect(reverse('event_detail', args=[event_id]))
+
+
+def review_delete(request, event_id, review_id):
+    """
+    view to delete reviews
+    """
+    if request.method == "POST":        

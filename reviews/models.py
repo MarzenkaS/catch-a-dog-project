@@ -22,14 +22,12 @@ class Reviews(models.Model):
     class Meta:
         ordering = ["-created_on"]
 
-LIKE_CHOICE = (
-    ('Like', 'Like'),
-)
+
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     reviews = models.ForeignKey(Reviews, on_delete=models.CASCADE)
-    value = models.CharField(choice=LIKE_CHOICE, default='Like')
+    value = models.CharField(default='Like')
 
     def __str__(self):
         return str(self.review)
