@@ -9,29 +9,13 @@ class Reviews(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviews")
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    likes = models.ManyToManyField(User, default=None, blank=True, related_name='likes')
     status = models.IntegerField(choices=STATUS, default=0) 
 
     def __str__(self):
-        return f"Posted by {self.author}"
-    
-    @property
-    def num_likes(self):
-        return self.likes.all().count()    
+        return f"Posted by {self.author}"  
 
     class Meta:
         ordering = ["-created_on"]
-
-
-
-class Like(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    reviews = models.ForeignKey(Reviews, on_delete=models.CASCADE)
-    value = models.CharField(default='Like')
-
-    def __str__(self):
-        return str(self.review)
-
 
 
 class Comment(models.Model):

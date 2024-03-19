@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .models import Reviews, Comment, Like
+from .models import Reviews, Comment
 from .forms import CommentForm
 
 # Create your views here.
@@ -46,25 +46,6 @@ def reviews_detail(request, pk):
         }
     )
 
-
-def like_reviews(request, reviews_id):
-    user = request.user
-    if request.Method == 'POST':
-        reviews_id = request.POST.get('reviews_id')
-        reviews.obj = Reviews.objects.get(id=reviews_id)
-
-        if user in reviews.obj.likes.all():
-            reviews_obj.likes.remove(user)
-        else:
-            reviews.obj.likes.add(user)
-
-        like = Like.objects.get(user=user, reviews_id=reviews_id)
-
-        like.save()                  
-            
-    return self.likes.all().count()
-
- 
 
 def comment_edit(request, pk, comment_id):
     """
