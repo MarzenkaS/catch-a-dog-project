@@ -101,13 +101,13 @@ h2 {
 .gallery img {
     padding-top: 20px;
     height: 350px;
-    width: 350px;
+    width: 400px;
 }
 
 .gallery {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 0;
+    width: fit-content;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 /* footer */
