@@ -56,16 +56,6 @@ h2 {
     margin-left: 45%;
 }
 
-.fa-heart {
-    color: red;
-}
-
-.btn-like {
-    border: none;
-    text-decoration: none;
-    background-color: white;
-}
-
 /* about me page and image */
 
 .image-about img {
@@ -108,23 +98,16 @@ h2 {
 
 /* gallery */
 
-
-.about-gallery {
-    height: 300px;
-    width: 300px;
-}
-
 .gallery img {
-    padding-left: 20px;
     padding-top: 20px;
+    height: 350px;
+    width: 350px;
 }
 
 .gallery {
-   width: 100%;
-   text-align: center;
-   margin-left: auto;
-   margin-right: auto;
-   padding-left: 5%;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 0;
 }
 
 /* footer */
@@ -134,7 +117,6 @@ h2 {
     width: 100%;
     bottom: 0;
     height: 12%;
-    
 }
 
 .footer li {

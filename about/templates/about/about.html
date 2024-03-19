@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+
 <div class="container mt-5">
     <div class="row text-center">
         <div class="col-12 text-center image-about">
@@ -15,7 +16,6 @@
     </div>
     <div class="row">
         <div class="col text-right">
-
             <div class="text-center fs-5 contact-about">
                 <ul class="text-center"><strong>If you want to get more information about therapy or make an
                         appointment, please contact me
@@ -40,11 +40,8 @@
 </div>
 
 <!-- Gallery -->
-
-    <div class="col-12 text-center">
-
+    <div class="col-12">
         <div class="row text-center d-flex flex-row gallery">
-
             <img src="{% static 'images/foto1.jpg' %}" class="about-gallery">
 
             <img src="{% static 'images/foto2.jpg' %}" class="about-gallery">
@@ -56,11 +53,8 @@
             <img src="{% static 'images/foto5.jpg' %}" class="about-gallery">
 
             <img src="{% static 'images/foto6.jpg' %}" class="about-gallery">
-
         </div>
-
     </div>
-
 
 </div>
 {% endblock content %}
