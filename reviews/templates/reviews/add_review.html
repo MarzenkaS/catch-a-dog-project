@@ -5,8 +5,8 @@
 {% block content %}
 
 <!-- Adding new review --> 
-<div class="col-md-4 card mb-4 mt-3">
-    <div class="card-body">
+<div class="col-md-4 card mb-4 mt-3 offset-md-4">
+    <div class="card-body text-center">
         {% if user.is_authenticated %}
         <h3 class="text-decoration-underline">Add your review:</h3>
         <p>Posting as: {{ user.username }}</p>
@@ -19,10 +19,7 @@
         <p>Log in to leave review</p>
         {% endif %}
 
-        {% if user.is_authenticated and review.author == user %}
-        <button class="btn btn-delete" review_id="{{ review.id }}">Delete</button>
-        <button class="btn btn-edit" review_id="{{ review.id }}">Edit</button>
-        {% endif %}
+        
     </div>
 </div>
 </div>
