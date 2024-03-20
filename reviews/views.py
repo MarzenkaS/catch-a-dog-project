@@ -100,7 +100,7 @@ def add_review(request):
             review.author = request.user
             review.save()
             messages.success(request, 'Review submitted and awaiting approval')
-            return redirect('review_detail', pk=review.pk)  # Redirect to review detail page or any other appropriate page
+            return redirect('review_detail', pk=review.pk)  # Redirect to review detail page
     else:
         review_form = ReviewForm()
    
