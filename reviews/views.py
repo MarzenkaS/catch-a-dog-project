@@ -1,10 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Reviews, Comment
 from .forms import CommentForm, ReviewForm
-
 
 
 # Create your views here.
@@ -107,41 +106,40 @@ def add_review(request):
     return render(request, "reviews/add_review.html", {'review_form': review_form})
 
 
-def review_edit(request, event, review):
+def review_edit(request, event_id, review_id):
     """
     view to edit reviews
     """
-    if request.method == "POST":
+    event = get_object_or_404(Event, pk=event_id)
+    review = get_object_or_404(Review, pk=review_id)
 
-        queryset = Event.objects.all()
-        event = get_object_or_404(queryset, event)
-        review = get_object_or_404(Review, review)
+    if request.method == "POST":
         review_form = ReviewForm(data=request.POST, instance=review)  
 
         if review_form.is_valid() and review.reviewer == request.user:
             review = review_form.save(commit=False)
             review.event = event
             review.save()
-            messages.add_message(request, messages.SUCCESS, 'Review Updated!')
+            messages.success(request, 'Review Updated!')
+            return HttpResponseRedirect(reverse('event_detail', args=[event_id]))
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating Review!')
+            messages.error(request, 'Error updating Review!')
 
-    return HttpResponseRedirect(reverse('event_detail', args=[event]))
+    return render(request, "reviews/edit_review.html", {'review': review, 'event': event})
 
 
-def review_delete(request, event, review):
+def review_delete(request, event_id, review_id):
     """
     view to delete reviews
     """
-    queryset = Event.objects.all()
-    event = get_object_or_404(queryset, event)
-    review = get_object_or_404(Review, review)
-    review_form = ReviewForm(data=request.POST, instance=review) 
+    event = get_object_or_404(Event, pk=event_id)
+    review = get_object_or_404(Review, pk=review_id)
 
     if review.author == request.user:
         review.delete()
-        messages.add_message(request, messages.SUCCESS, 'Review deleted!')
+        messages.success(request, 'Review deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own review!')
+        messages.error(request, 'You can only delete your own review!')
 
-    return HttpResponseRedirect(reverse('event_detail', args=[event]))      
+    return HttpResponseRedirect(reverse('event_detail', args=[event_id]))
+
