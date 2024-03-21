@@ -50,40 +50,42 @@ def reviews_detail(request, pk):
 
 def comment_edit(request, pk, comment_id):
     """
-    view to edit comments
+    View to edit comments
     """
-    if request.method == "POST":
+    review = get_object_or_404(Reviews, pk=pk)
+    comment = get_object_or_404(Comment, pk=comment_id)
 
-        queryset = Reviews.objects.filter(status=1)
-        review = get_object_or_404(queryset, pk=pk)
-        comment = get_object_or_404(Comment, pk=comment_id)
-        comment_form = CommentForm(data=request.POST, instance=comment)                       
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST, instance=comment)
 
         if comment_form.is_valid() and comment.author == request.user:
             comment = comment_form.save(commit=False)
             comment.reviews = review
             comment.approved = False
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            messages.success(request, 'Comment Updated!')
+            return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.error(request, 'Error updating comment!')
 
-    return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
+    else:
+        comment_form = CommentForm(instance=comment)
+
+    return render(request, 'comment_edit.html', {'comment_form': comment_form})
 
 
 def comment_delete(request, pk, comment_id):
     """
-    view to delete comment
+    View to delete comment
     """
-    queryset = Reviews.objects.filter(status=1)
-    review = get_object_or_404(queryset, pk=pk)
+    review = get_object_or_404(Reviews, pk=pk)
     comment = get_object_or_404(Comment, pk=comment_id)
 
     if comment.author == request.user:
         comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+        messages.success(request, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.error(request, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
 
@@ -99,7 +101,7 @@ def add_review(request):
             review.author = request.user
             review.save()
             messages.success(request, 'Review submitted and awaiting approval')
-            return redirect('review_detail', pk=review.pk)  # Redirect to review detail page
+            return redirect('reviews_detail', pk=review.pk)  # Redirect to review detail page
     else:
         review_form = ReviewForm()
    

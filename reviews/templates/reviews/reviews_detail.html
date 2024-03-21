@@ -24,14 +24,15 @@
           {{ review.content | safe }}
         </p>
         {% if user.is_authenticated and review.author == user %}
-        <button class="btn btn-delete review">Delete</button>
-        <button class="btn btn-edit review">Edit</button>
+        <button class="btn btn-delete-review review" review_id="{{ review.id }}">Delete</button>
+        <button class="btn btn-edit-review review" review_id="{{ review.id }}">Edit</button>
+        
         {% endif %}
       </div>
     </div>
   </div>
 <!-- Delete confirmation modal for reviews -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModalReview" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -44,7 +45,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirm" href="#" class="btn
+        <a id="deleteConfirmReview" href="#" class="btn
           btn-danger">Delete</a>
       </div>
     </div>
