@@ -121,11 +121,11 @@ def review_edit(request, review_id):
             review = review_form.save(commit=False)
             review.save()
             messages.success(request, 'Review Updated!')
-            return HttpResponseRedirect(reverse('event_detail', args=[review_id]))
+            return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
         else:
             messages.error(request, 'Error updating Review!')
 
-    return render(request, "reviews/edit_review.html", {'review': review})
+    return render(request, "review_edit.html", {'review_form': review_form})
 
 
 def review_delete(request, review_id):
@@ -140,5 +140,5 @@ def review_delete(request, review_id):
     else:
         messages.error(request, 'You can only delete your own review!')
 
-    return HttpResponseRedirect(reverse('event_detail', args=[review_id]))
+    return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
 

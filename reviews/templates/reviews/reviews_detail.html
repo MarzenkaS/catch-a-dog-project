@@ -22,15 +22,15 @@
         <div class="col-md-6 masthead-text text-start">
           <p class="post-subtitle"><strong>{{ review.author }} | {{ review.created_on }}</strong></p>
         </div>
-        <div class="card-text" review_id="{{ review.id }}">
+        <div class="card-text reviewText" review_id="{{ review.id }}">
           {{ review.content | safe }}
         </div>
         {% if not review.approved and review.author == user %}
         <p class="approval">This review is awaiting approval</p>
         {% endif %}
         {% if user.is_authenticated and review.author == user %}
-        <button class="btn btn-delete-review review" review_id="{{ review.id }}">Delete</button>
-        <button class="btn btn-edit-review review" review_id="{{ review.id }}">Edit</button>
+        <button class="btn deleteReviewButtons review" review_id="{{ review.id }}">Delete</button>
+        <button class="btn editReviewButtons review" review_id="{{ review.id }}">Edit</button>
         {% endif %}
       </div>
     </div>

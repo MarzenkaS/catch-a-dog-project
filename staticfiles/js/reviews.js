@@ -1,10 +1,10 @@
-const editReviewButtons = document.getElementsByClassName("btn-edit-review");
-const reviewText = document.getElementsByClassName("id_content");
+const editReviewButtons = document.getElementsByClassName("editReviewButtons");
+const reviewText = document.getElementsByClassName("reviewText");
 const reviewForm = document.getElementById("reviewForm");
 const submitButtonReview = document.getElementById("submitButtonReview");
 
 const deleteModalReview = new bootstrap.Modal(document.getElementById("deleteModalReview"));
-const deleteReviewButtons = document.getElementsByClassName("btn-delete-review");
+const deleteReviewButtons = document.getElementsByClassName("deleteReviewButtons");
 const deleteConfirmReview = document.getElementById("deleteConfirmReview");
 
 /* Initializes edit functionality for the provided edit buttons */

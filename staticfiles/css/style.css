@@ -178,10 +178,10 @@ h2 {
     color: white;
 }
 
-.btn-delete-review {
+.deleteReviewButtons {
     background-color: red;
 }
 
-.btn-edit-review {
+.editReviewButtons {
     background-color: green;
 }
