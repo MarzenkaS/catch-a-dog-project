@@ -108,11 +108,10 @@ def add_review(request):
     return render(request, "reviews/add_review.html", {'review_form': review_form})
 
 
-def review_edit(request, event_id, review_id):
+def review_edit(request, review_id):
     """
     view to edit reviews
     """
-    event = get_object_or_404(Event, pk=event_id)
     review = get_object_or_404(Review, pk=review_id)
 
     if request.method == "POST":
@@ -120,21 +119,19 @@ def review_edit(request, event_id, review_id):
 
         if review_form.is_valid() and review.reviewer == request.user:
             review = review_form.save(commit=False)
-            review.event = event
             review.save()
             messages.success(request, 'Review Updated!')
-            return HttpResponseRedirect(reverse('event_detail', args=[event_id]))
+            return HttpResponseRedirect(reverse('event_detail', args=[review_id]))
         else:
             messages.error(request, 'Error updating Review!')
 
-    return render(request, "reviews/edit_review.html", {'review': review, 'event': event})
+    return render(request, "reviews/edit_review.html", {'review': review})
 
 
-def review_delete(request, event_id, review_id):
+def review_delete(request, review_id):
     """
     view to delete reviews
     """
-    event = get_object_or_404(Event, pk=event_id)
     review = get_object_or_404(Review, pk=review_id)
 
     if review.author == request.user:
@@ -143,5 +140,5 @@ def review_delete(request, event_id, review_id):
     else:
         messages.error(request, 'You can only delete your own review!')
 
-    return HttpResponseRedirect(reverse('event_detail', args=[event_id]))
+    return HttpResponseRedirect(reverse('event_detail', args=[review_id]))
 

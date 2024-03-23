@@ -18,6 +18,7 @@ for (let button of editReviewButtons) {
   });
 }
 
+
 /* Initializes deletion functionality for the provided delete buttons */
 for (let button of deleteReviewButtons) {
   button.addEventListener("click", (e) => {
