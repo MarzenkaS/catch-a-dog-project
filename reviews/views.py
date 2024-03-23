@@ -112,7 +112,7 @@ def review_edit(request, review_id):
     """
     view to edit reviews
     """
-    review = get_object_or_404(Review, pk=review_id)
+    review = get_object_or_404(Reviews, pk=review_id)
 
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST, instance=review)  
@@ -128,11 +128,11 @@ def review_edit(request, review_id):
     return render(request, "review_edit.html", {'review_form': review_form})
 
 
-def review_delete(request, review_id):
+def review_delete(request, pk, review_id):
     """
     view to delete reviews
     """
-    review = get_object_or_404(Review, pk=review_id)
+    review = get_object_or_404(Reviews, pk=review_id)
 
     if review.author == request.user:
         review.delete()
@@ -140,5 +140,4 @@ def review_delete(request, review_id):
     else:
         messages.error(request, 'You can only delete your own review!')
 
-    return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
-
+    return HttpResponseRedirect(reverse('home'))
