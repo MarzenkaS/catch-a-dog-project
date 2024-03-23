@@ -13,12 +13,13 @@
     </div>
   </div>
 </div>
+ <!-- Displaying Reviews -->
 <div class="container">
   <div class="row">
     <div class="col card mb-4  mt-3 left top">
       <div class="card-body">
-        {% for reviw in reviews %}
-        <div class="p-2 reviews{% if not review.approved and review.author == user %} faded{% elif not review.approved %} d-none{% endif %}">
+        
+        
           <div class="col-md-6 masthead-text text-start">
             <p class="post-subtitle"><strong>{{ review.author }} | {{ review.created_on }}</strong></p>
           </div>
@@ -32,9 +33,7 @@
           <button class="btn btn-delete-review review" review_id="{{ review.id }}">Delete</button>
           <button class="btn btn-edit-review review" review_id="{{ review.id }}">Edit</button>
           {% endif %}
-        </div>
-        {% endfor %}
-      </div>
+      
     </div>
   </div>
   <!-- Delete confirmation modal for reviews -->
@@ -146,4 +145,5 @@
 
 {% block extras %}
 <script src="{% static 'js/comments.js' %}"></script>
+<script src="{% static 'js/reviews.js' %}"></script>
 {% endblock %}
