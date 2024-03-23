@@ -22,7 +22,7 @@
         <div class="col-md-6 masthead-text text-start">
           <p class="post-subtitle"><strong>{{ review.author }} | {{ review.created_on }}</strong></p>
         </div>
-        <div class="card-text reviewText" review_id="{{ review.id }}">
+        <div class="card-text reviewText textContent" review_id="{{ review.id }}">
           {{ review.content | safe }}
         </div>
         {% if not review.approved and review.author == user %}

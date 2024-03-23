@@ -120,12 +120,11 @@ def review_edit(request, review_id):
         if review_form.is_valid() and review.reviewer == request.user:
             review = review_form.save(commit=False)
             review.save()
-            messages.success(request, 'Review Updated!')
-            return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
+            messages.add_message(request, messages.SUCCESS, 'Review Updated!')
         else:
-            messages.error(request, 'Error updating Review!')
+            messages.add_message(request, messages.ERROR, 'Error updating review!')
 
-    return render(request, "review_edit.html", {'review_form': review_form})
+    return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
 
 
 def review_delete(request, pk, review_id):
