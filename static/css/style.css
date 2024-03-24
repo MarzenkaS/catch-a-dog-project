@@ -100,14 +100,8 @@ h2 {
 
 .gallery img {
     padding-top: 20px;
-    height: 350px;
-    width: 400px;
-}
-
-.gallery {
-    width: fit-content;
-    margin-left: 5%;
-    margin-right: 5%;
+    height: 300px;
+    width: 300px;
 }
 
 /* footer */
