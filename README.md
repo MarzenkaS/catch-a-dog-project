@@ -1,6 +1,6 @@
 # Catch a Dog - Advanced Zoophysiotherapy & Fitness
 
-My inspiration for creating this Django project was my sister. She is a physiotherapist for dogs and cats. I wanted to create a website where pet owners can find the information they need to know about therapy she is providing. Another important thing is the ability to read other people's opinions and comments, as well as add your own after logging in.
+My inspiration for creating this Django project was my sister's profession. She is a physiotherapist for dogs and cats. I wanted to create a website where pet owners can find the information they need to know about therapy she is providing. Another important thing is the ability to read other people's opinions and comments, as well as add your own after logging in.
 
 ![responsive mockup](https://github.com/MarzenkaS/catch-a-dog-project/blob/main/docs/responsive.png?raw=true)
 
