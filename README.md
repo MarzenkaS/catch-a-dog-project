@@ -9,6 +9,7 @@ My inspiration for creating this Django project was my sister's profession. She 
 ## Table of Contents
 
 - [User Experience(UX)](#user-experience(UX))
+  - [Agile](#agile)
 - [Features](#features)
     - [Existing Features](#existing-features)
     - [Future Features](#future-features)
@@ -30,6 +31,7 @@ My inspiration for creating this Django project was my sister's profession. She 
    
 
 ## User Experience(UX)
+### Agile
 
 ## Features
 ### Existing Features
@@ -45,6 +47,8 @@ Footer
 ## Testing
 ### Validator testing
 ### Lighthouse
+1. Desktop
+2. Mobile
 ### Other browsers
 ### Different screen sizes
 ### Bugs
