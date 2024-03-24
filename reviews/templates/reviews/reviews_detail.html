@@ -19,11 +19,14 @@
   <div class="row">
     <div class="col card mb-4  mt-3 left top">
       <div class="card-body">
+
+        <p class="font-weight-bold">
         <div class="col-md-6 masthead-text text-start">
           <p class="post-subtitle"><strong>{{ review.author }} | {{ review.created_on }}</strong></p>
         </div>
         <div class="card-text reviewText textContent" review_id="{{ review.id }}">
           {{ review.content | safe }}
+          <hr>
         </div>
         {% if not review.approved and review.author == user %}
         <p class="approval">This review is awaiting approval</p>
@@ -87,7 +90,6 @@
             </p>
             <div id="comment{{ comment.id }}">
               {{ comment.body | linebreaks }}
-
             </div>
             {% if not comment.approved and comment.author == user %}
             <p class="approval">

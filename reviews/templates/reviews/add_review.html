@@ -10,7 +10,7 @@
     <div class="card-body text-center">
         {% if user.is_authenticated %}
         <h3 class="text-decoration-underline">Add your review:</h3>
-        <p>Posting as: {{ user.username }}</p>
+        <p>Posted as: {{ user.username }}</p>
         <form id="reviewForm" method="post" style="margin-top: 1.3em;" class="review_id reviewText">
             {{ review_form | crispy }}
             {% csrf_token %}
