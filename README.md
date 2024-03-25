@@ -171,11 +171,30 @@ Features visualized here [Existing Features](#existing-features)
 
 ## Testing
 ### Validator testing
+
+HTML W3C validator
+
+CSS W3C validator
+
+No errors
+![css validator](https://res.cloudinary.com/dguqjbr12/image/upload/v1711379699/catch%20a%20dog%20readme/css_fc1kxa.png)
+
+JavaScript JSHint
+
+Python CI Python Linter
+
+
+
 ### Lighthouse
+I made a Lighthouse for each page while being incognito. 
 1. Desktop
 2. Mobile
 ### Other browsers
+I tested my website on Google Chrome, Microsoft Edge, Mozilla Firefox and Safari. All functionality works.
+
 ### Different screen sizes
+Thanks to Bootstrap my project is responsive on all device sizes
+
 ### Bugs
 
 ## Technologies Used
