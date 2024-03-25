@@ -209,6 +209,29 @@ JavaScript JSHint
 
 Python CI Python Linter
 
+- About app
+
+No errors in admin.py, urls.py, models.py, views.py
+
+- My dog project app
+
+No errors in settings.py and urls.py
+
+- Reviews app
+
+No errors in admin.py and views.py.
+
+![errors reviews views.py](https://res.cloudinary.com/dguqjbr12/image/upload/v1711402326/catch%20a%20dog%20readme/python.reviews.views_py_qwpdh8.png)
+All clear in views.py
+
+![errors reviews urls.py](https://res.cloudinary.com/dguqjbr12/image/upload/v1711402323/catch%20a%20dog%20readme/python.reviews.urls.py_yfw8xc.png)
+Line of code were too long so I moved it to the second line
+
+![errors reviews models.py](https://res.cloudinary.com/dguqjbr12/image/upload/v1711402320/catch%20a%20dog%20readme/python.reviews.models.py_lxle66.png)
+Removing trailing whitespaces
+
+![errors reviews forms.py](https://res.cloudinary.com/dguqjbr12/image/upload/v1711402316/catch%20a%20dog%20readme/python.reviews.forms.py_othefr.png)
+Missing whitespace around operator
 
 ### Lighthouse
 I made a Lighthouse while being incognito. Had some issues to achieve high Accessibility and SEO.
