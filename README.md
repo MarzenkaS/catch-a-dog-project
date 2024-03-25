@@ -184,11 +184,21 @@ JavaScript JSHint
 Python CI Python Linter
 
 
-
 ### Lighthouse
-I made a Lighthouse for each page while being incognito. 
+I made a Lighthouse while being incognito. Had some issues to achieve high Accessibility and SEO.
+- Had to add alt attribute to all images
+- Most of my 'a' tags didn't have aria-lebel attribute
+- Was missing 'meta' tag with description
+- I made my nav-link names bolder to be more visible because of dark background color
+
 1. Desktop
+
+![lighthouse desktop](https://res.cloudinary.com/dguqjbr12/image/upload/v1711387066/catch%20a%20dog%20readme/light.desktop_nntocp.png)
+
 2. Mobile
+
+![lighthouse mobile](https://res.cloudinary.com/dguqjbr12/image/upload/v1711387069/catch%20a%20dog%20readme/light.mobile_iezohq.png)
+
 ### Other browsers
 I tested my website on Google Chrome, Microsoft Edge, Mozilla Firefox and Safari. All functionality works.
 
