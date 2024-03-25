@@ -39,13 +39,13 @@ def reviews_detail(request, pk):
     comment_form = CommentForm()
 
     return render(request, "reviews/reviews_detail.html",
-        {
-            "review": review,
-            "comments": comments,
-            "comment_count": comment_count,
-            "comment_form": comment_form,
-        }
-    )
+                  {
+                   "review": review,
+                   "comments": comments,
+                   "comment_count": comment_count,
+                   "comment_form": comment_form,
+                  }
+                  )
 
 
 def comment_edit(request, pk, comment_id):
@@ -101,11 +101,13 @@ def add_review(request):
             review.author = request.user
             review.save()
             messages.success(request, 'Review submitted')
-            return redirect('reviews_detail', pk=review.pk)  # Redirect to review detail page
+            return redirect('reviews_detail', pk=review.pk)
+            # Redirect to review detail page
     else:
         review_form = ReviewForm()
-   
-    return render(request, "reviews/add_review.html", {'review_form': review_form})
+
+    return render(request, "reviews/add_review.html",
+                  {'review_form': review_form})
 
 
 def review_edit(request, review_id):
@@ -115,14 +117,15 @@ def review_edit(request, review_id):
     review = get_object_or_404(Reviews, pk=review_id)
 
     if request.method == "POST":
-        review_form = ReviewForm(data=request.POST, instance=review)  
+        review_form = ReviewForm(data=request.POST, instance=review)
 
         if review_form.is_valid() and review.reviewer == request.user:
             review = review_form.save(commit=False)
             review.save()
             messages.add_message(request, messages.SUCCESS, 'Review Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating review!')
+            messages.add_message(
+                request, messages.ERROR, 'Error updating review!')
 
     return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
 
