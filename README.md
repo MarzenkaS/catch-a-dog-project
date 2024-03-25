@@ -2,7 +2,7 @@
 
 My inspiration for creating this Django project was my sister's profession. She is a physiotherapist for dogs and cats. I wanted to create a website where pet owners can find the information they need to know about therapy she is providing. Another important thing is the ability to read other people's opinions and comments, as well as add your own after logging in.
 
-![responsive mockup](https://github.com/MarzenkaS/catch-a-dog-project/blob/main/docs/responsive.png?raw=true)
+![responsive mockup](https://res.cloudinary.com/dguqjbr12/image/upload/v1711357050/catch%20a%20dog%20readme/responsive_uzx4fe.png)
 
 [Link to live site](https://catch-a-dog-99383fa22fc6.herokuapp.com)
 
