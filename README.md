@@ -174,13 +174,31 @@ Features visualized here [Existing Features](#existing-features)
 
 HTML W3C validator
 
-- base.html
 - Home page
+
+![errors home](https://res.cloudinary.com/dguqjbr12/image/upload/v1711398628/catch%20a%20dog%20readme/html.home_viflfq.png)
+Stray end 'div' tag and 'p' element applies to a review added by a user and I can't locate and fix it.
+
 - Add review page
+
+![errors add review](https://res.cloudinary.com/dguqjbr12/image/upload/v1711398616/catch%20a%20dog%20readme/html.add.review_npisnz.png)
+No errors
+
 - Reviews detail
+
+![errors reviews detail](https://res.cloudinary.com/dguqjbr12/image/upload/v1711395766/catch%20a%20dog%20readme/html.reviews.detail_up6vsu.png)
+For solving problem with duplicate ID I just changed value. I removed review_id from 'div' element.
+
+![errors reviews detail1](https://res.cloudinary.com/dguqjbr12/image/upload/v1711395770/catch%20a%20dog%20readme/html.reviews.detail1_dmceww.png)
+After removing review_id from 'buttons' my buttons didn't work so I left it.
+
 - About me page
 
+![errors about](https://res.cloudinary.com/dguqjbr12/image/upload/v1711392832/catch%20a%20dog%20readme/html.about_d5wmha.png)
+To fix this errors I removed 'br' tags from line where it is marked. Size for logo in nav bar I setted up in css file. I removed context from 'ul' element and one end of 'p' tag.
 
+![errors about1](https://res.cloudinary.com/dguqjbr12/image/upload/v1711392840/catch%20a%20dog%20readme/html.about1_vjwr5t.png)
+The 'font' element, used to define the font face, size and color is no longer valid in HTML5. Instead, I should style in but content was written in admin panel.
 
 CSS W3C validator
 

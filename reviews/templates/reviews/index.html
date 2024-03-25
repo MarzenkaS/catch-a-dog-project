@@ -8,8 +8,11 @@
         <!-- Reviews Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
-                <h2 class="text-center text-decoration-underline">Welcome to my Catch a Dog<br><i class="fa-solid fa-dog" style="color: #2f15f4;"></i>
-                    website!</h2><br><h3 class="text-center">A website dedicated to therapy and rehabilitation for animals. You can read and comment
+                <h2 class="text-center text-decoration-underline">Welcome to my Catch a Dog<br><i
+                        class="fa-solid fa-dog" style="color: #2f15f4;"></i>
+                    website!</h2><br>
+                <h3 class="text-center">A website dedicated to therapy and rehabilitation for animals. You can read and
+                    comment
                     on others' reviews. If your dog or cat was my client and you want to share your opinion with others,
                     please you are welcome to do so
                     after logging in!</h3>
@@ -17,16 +20,15 @@
                 <a href="{% url 'reviews_detail' reviews.id %}" class="reviews-link" aria-label="reviews-detail">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <h3 class="text-decoration-underline">{{reviews}}</h3>
+                            <h3 class="text-decoration-underline">{{reviews}}</h3><br>
                             <p>{{reviews.content | safe}}</p>
-                            <p class="card-text text-muted h6">{{ reviews.created_on}}</p>
-
+                            <span class="card-text text-muted h6">{{ reviews.created_on}}</span>
                         </div>
                     </div>
+                </a>
             </div>
             {% if forloop.counter|divisibleby:3 %}{% endif %}
             {% endfor %}
-            </a>
         </div>
     </div>
 </div>
@@ -35,17 +37,19 @@
     <ul class="pagination justify-content-center">
         {% if page_obj.has_previous %}
         <li>
-            <a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="takes-to-previous-page">&laquo; PREV</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="page-link"
+                aria-label="takes-to-previous-page">&laquo; PREV</a>
         </li>
         {% endif %} {% if page_obj.has_next %}
         <li>
-            <a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="takes-to-next-page">NEXT &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="takes-to-next-page">NEXT
+                &raquo;</a>
         </li>
         {% endif %}
     </ul>
 </nav>
 {% endif %}
-</div>
+
 
 {% endblock %}
 {% block copyright %}
