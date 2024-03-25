@@ -19,18 +19,21 @@ a:hover {
 .navbar {
     background-color: rgb(12, 25, 214);
     width: 100%;
+    
 }
 
 .nav-item a:hover {
     border-bottom: 1px solid white;
     text-decoration-color: black;
+    font-weight: bold;
 }
-
+ 
 .nav-link {
     color: white;
+    font-weight: bold;
 }
 
-.nav-link:active {
+.nav-link a:active {
     color: black;
 }
 
