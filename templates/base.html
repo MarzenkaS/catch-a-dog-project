@@ -31,8 +31,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.jpg' %}" alt="logo with dog" height="60px"
-          width="60px"></a>
+      <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.jpg' %}" alt="logo with dog"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -50,7 +49,8 @@
           {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link
-              {% if request.path == add_review_url %}active{%endif%}" aria-current="page" href="{% url 'add_review' %}">Add your review</a>
+              {% if request.path == add_review_url %}active{%endif%}" aria-current="page"
+              href="{% url 'add_review' %}">Add your review</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
@@ -74,20 +74,19 @@
     </div>
   </nav>
   <!-- displaying Django messages -->
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      {% for message in messages %}
-      <div class="alert {{ message.tags }} alert-dismissible
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        {% for message in messages %}
+        <div class="alert {{ message.tags }} alert-dismissible
         fade show" id="msg" role="alert">
-        {{ message | safe }}
-        <button type="button" class="btn-close"
-          data-bs-dismiss="alert" aria-label="Close"></button>
+          {{ message | safe }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
       </div>
-      {% endfor %}
     </div>
   </div>
-</div>
 
   {% block content %}
   {% endblock %}
@@ -108,21 +107,21 @@
       {% endblock copyright %}
     </p>
     <p class="m-0 text-center text-white social-icons">
-     <ul class="text-center text-white">Follow me:
-       <li>
-         <a href="https://www.facebook.com/zlappsafizjo" target="_blank" rel="noopener"
+    <ul class="text-center text-white">
+      <li>
+        <a href="https://www.facebook.com/zlappsafizjo" target="_blank" rel="noopener"
           aria-label="Visit-my-Facebook-page (opens in the new tab)">
-           <i class="fa-brands fa-facebook fa-lg"></i></a>
-       </li>
-       <li>
-         <a href="https://www.instagram.com/zlappsa/" target="_blank" rel="noopener"
+          <i class="fa-brands fa-facebook fa-lg"></i></a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/zlappsa/" target="_blank" rel="noopener"
           aria-label="Visit-my-Instagram-page (opens in the new tab)"><i class="fa-brands fa-instagram fa-lg"></i></a>
-       </li>
-       <li>
-         <a href="https://www.youtube.com" target="_blank" rel="noopener"
+      </li>
+      <li>
+        <a href="https://www.youtube.com" target="_blank" rel="noopener"
           aria-label="Visit-my-youtube-page (opens in the new tab)"><i class="fa-brands fa-youtube fa-lg"></i></a>
-       </li>
-     </ul>
+      </li>
+    </ul>
     </p>
   </footer>
 

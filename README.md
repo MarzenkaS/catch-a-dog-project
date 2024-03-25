@@ -174,6 +174,14 @@ Features visualized here [Existing Features](#existing-features)
 
 HTML W3C validator
 
+- base.html
+- Home page
+- Add review page
+- Reviews detail
+- About me page
+
+
+
 CSS W3C validator
 
 No errors

@@ -19,7 +19,11 @@ a:hover {
 .navbar {
     background-color: rgb(12, 25, 214);
     width: 100%;
-    
+}
+
+.navbar img {
+    width: 60px;
+    height: 60px; 
 }
 
 .nav-item a:hover {
