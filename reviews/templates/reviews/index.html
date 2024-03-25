@@ -14,7 +14,7 @@
                     please you are welcome to do so
                     after logging in!</h3>
                 {% for reviews in object_list %}
-                <a href="{% url 'reviews_detail' reviews.id %}" class="reviews-link">
+                <a href="{% url 'reviews_detail' reviews.id %}" class="reviews-link" aria-label="reviews-detail">
                     <div class="card mb-4">
                         <div class="card-body">
                             <h3 class="text-decoration-underline">{{reviews}}</h3>
@@ -35,11 +35,11 @@
     <ul class="pagination justify-content-center">
         {% if page_obj.has_previous %}
         <li>
-            <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+            <a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="takes-to-previous-page">&laquo; PREV</a>
         </li>
         {% endif %} {% if page_obj.has_next %}
         <li>
-            <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="takes-to-next-page">NEXT &raquo;</a>
         </li>
         {% endif %}
     </ul>

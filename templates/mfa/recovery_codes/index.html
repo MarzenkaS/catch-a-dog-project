@@ -13,11 +13,11 @@
     <ul class="actions">
         {% if unused_codes %}
             <li>
-                <a href="{% url 'mfa_download_recovery_codes' %}">{% translate "Download codes" %}</a>
+                <a href="{% url 'mfa_download_recovery_codes' %}" aria-label="mfa-download-recovery-codes">{% translate "Download codes" %}</a>
             </li>
         {% endif %}
         <li>
-            <a href="{% url 'mfa_generate_recovery_codes' %}">{% translate "Generate new codes" %}</a>
+            <a href="{% url 'mfa_generate_recovery_codes' %}" aria-label="mfa-generate-recovery-codes">{% translate "Generate new codes" %}</a>
         </li>
     </ul>
 {% endblock content %}
