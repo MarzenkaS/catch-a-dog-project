@@ -121,13 +121,17 @@ def review_edit(request, review_id):
 
         if review_form.is_valid() and review.reviewer == request.user:
             review = review_form.save(commit=False)
+            review.reviews = review
+            review.approved = False
             review.save()
-            messages.add_message(request, messages.SUCCESS, 'Review Updated!')
+            messages.success(request, 'Review Updated!')
+            return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
         else:
-            messages.add_message(
-                request, messages.ERROR, 'Error updating review!')
+            messages.error(request, 'Error updating review!')
+    else:
+         review_form = ReviewForm(instance=review)
 
-    return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
+    return render(request, 'review_edit.html', {'review_form': review_form})
 
 
 def review_delete(request, pk, review_id):
