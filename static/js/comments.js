@@ -1,4 +1,4 @@
-const editButtonsComments = document.getElementsByClassName("editButtons");
+const editButtonsComments = document.getElementsByClassName("editButtonsComments");
 const commentText = document.getElementsByClassName("commentText");
 const commentForm = document.getElementById("commentForm");
 const submitButtonComment = document.getElementById("submitButtonComment");
@@ -13,7 +13,7 @@ for (let editButtonComment of editButtonsComments) {
     let commentId = e.target.getAttribute("comment_id");
     let commentContent = document.getElementById(`comment${commentId}`).textContent;
     commentText.value = commentContent;
-    submitButtonComment.value = "Update";
+    submitButtonComment.textBody = "Update";
     commentForm.setAttribute("action", `edit_comment/${commentId}`);
   });
 }
@@ -26,12 +26,6 @@ for (let deleteCommentButton of deleteCommentButtons) {
     deleteModalComment.show();
   });
 }
-
-
-
-
-
-
 
 
 

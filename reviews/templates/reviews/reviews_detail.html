@@ -14,6 +14,7 @@
     </div>
   </div>
 </div>
+
 <!-- Displaying Reviews -->
 <div class="container">
   <div class="row">
@@ -31,25 +32,24 @@
         {% endif %}
         {% if user.is_authenticated and review.author == user %}
         <button class="btn deleteReviewButtons review" review_id="{{ review.id }}">Delete</button>
-        <button class="btn editReviewButtons review" review_id="{{ review.id }}">Edit</button>
+        <button class="btn editReviewButtons review reviewText" review_id="{{ review.id }}">Edit</button>
         {% endif %}
       </div>
       <hr>
     </div>
-
-    <!-- Displaying review form for updating -->
+    <!-- Creating form for updating review -->
     <div class="col-md-4 card mb-4 mt-3">
-      <div class="card-body text-end">
+      <div class="card-body">
         {% if user.is_authenticated %}
         <h3 class="text-decoration-underline">Update your review:</h3>
         <p>Posting as: {{ user.username }}</p>
         <form id="reviewForm" method="post" style="margin-top: 1.3em;">
           {{ review_form | crispy }}
           {% csrf_token %}
-          <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+          <button id="updateButtonReview" type="submit" class="btn btn-signup btn-lg">Update</button>
         </form>
         {% else %}
-        <p>Log in to leave a review</p>
+        <p>Log in to update your review</p>
         {% endif %}
       </div>
     </div>
@@ -76,7 +76,6 @@
       </div>
     </div>
   </div>
-</div>
 </div>
 
 <!-- Displaying count of comments -->
@@ -106,7 +105,7 @@
                 {{ comment.created_on }}
               </span> wrote:</strong>
           </p>
-          <div id="comment{{ comment.id }}">
+          <div id="comment{{ comment.id }} textBody" class="commentText">
             {{ comment.body | linebreaks }}
           </div>
           {% if not comment.approved and comment.author == user %}
@@ -115,8 +114,8 @@
           </p>
           {% endif %}
           {% if user.is_authenticated and comment.author == user %}
-          <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
-          <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+          <button class="btn btn-delete deleteCommentButtons" comment_id="{{ comment.id }}">Delete</button>
+          <button class="btn btn-edit editButtonsComments" comment_id="{{ comment.id }}">Edit</button>
           {% endif %}
         </div>
         <hr>
@@ -133,7 +132,7 @@
         <form id="commentForm" method="post" style="margin-top: 1.3em;">
           {{ comment_form | crispy }}
           {% csrf_token %}
-          <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+          <button id="submitButtonComment" type="submit" class="btn btn-signup btn-lg">Submit</button>
         </form>
         {% else %}
         <p>Log in to leave a comment</p>
@@ -144,7 +143,7 @@
 </div>
 
 <!-- Delete confirmation modal for comments -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabelComment" aria-hidden="true">
+<div class="modal fade" id="deleteModalComment" tabindex="-1" aria-labelledby="deleteModalLabelComment" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -157,7 +156,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a id="deleteConfirm" href="#" aria-label="delete-confirm" class="btn
+        <a id="deleteConfirmComment" href="#" aria-label="delete-confirm" class="btn
           btn-danger">Delete
         </a>
       </div>

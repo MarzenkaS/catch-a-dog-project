@@ -38,12 +38,27 @@ def reviews_detail(request, pk):
 
     comment_form = CommentForm()
 
+    if request.method == "POST":
+        review_form = ReviewForm(data=request.POST)
+        if review_form.is_valid():
+            review = review_form.save(commit=False)
+            review.author = request.user
+            review.reviews = review
+            review.save()
+            messages.add_message(
+                request, messages.SUCCESS,
+                'Review submitted and awaiting approval'
+            )
+
+    review_form = ReviewForm()
+
     return render(request, "reviews/reviews_detail.html",
                   {
                    "review": review,
                    "comments": comments,
                    "comment_count": comment_count,
                    "comment_form": comment_form,
+                   "review_form": review_form,
                   }
                   )
 
