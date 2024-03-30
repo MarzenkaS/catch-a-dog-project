@@ -1,21 +1,19 @@
 const editBtnsReview = document.getElementsByClassName("editReviewButtons");
-const reviewText = document.getElementsByClassNamee("reviewText");
+const reviewText = document.getElementsByClassName("reviewText");
 const reviewForm = document.getElementById("reviewForm");
-const updateButtonReview = document.getElementById("updateButtonReview");
+const submitButtonReview = document.getElementById("submiteButtonReview");
 
 const deleteModalReview = new bootstrap.Modal(document.getElementById("deleteModalReview"));
 const deleteReviewButtons = document.getElementsByClassName("deleteReviewButtons");
 const deleteConfirmReview = document.getElementById("deleteConfirmReview");
 
 /* Initializes edit functionality for the provided edit buttons */
-for (let editReviewButton of editBtnsReview) {
-  editReviewButton.addEventListener("click", (e) => {
+for (let editBtnReview of editBtnsReview) {
+  editBtnReview .addEventListener("click", (e) => {
     let reviewId = e.target.getAttribute("review_id");
     let reviewContent = document.getElementById(`review${reviewId}`).textContent;
-    console.log(reviewContent);
-    console.log(reviewContent);
     reviewText.value = reviewContent;
-    updateButtonReview.textContent = "Update";
+    submitButtonReview.textContent = "Update";
     reviewForm.setAttribute("action", `edit_review/${reviewId}`);
   });
 }

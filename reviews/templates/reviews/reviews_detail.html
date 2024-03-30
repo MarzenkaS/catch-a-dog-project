@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
@@ -32,7 +33,7 @@
         {% endif %}
         {% if user.is_authenticated and review.author == user %}
         <button class="btn deleteReviewButtons review" review_id="{{ review.id }}">Delete</button>
-        <button class="btn editReviewButtons review reviewText" review_id="{{ review.id }}">Edit</button>
+        <button class="btn editReviewButtons review reviewText editReviewButtons" review_id="{{ review.id }}">Edit</button>
         {% endif %}
       </div>
       <hr>
@@ -46,7 +47,7 @@
         <form id="reviewForm" method="post" style="margin-top: 1.3em;">
           {{ review_form | crispy }}
           {% csrf_token %}
-          <button id="updateButtonReview" type="submit" class="btn btn-signup btn-lg">Update</button>
+          <button id="submitButtonReview" type="submit" class="btn btn-signup btn-lg">Submit</button>
         </form>
         {% else %}
         <p>Log in to update your review</p>
@@ -105,7 +106,7 @@
                 {{ comment.created_on }}
               </span> wrote:</strong>
           </p>
-          <div id="comment{{ comment.id }} textBody" class="commentText">
+          <div id="comment{{ comment.id }}" class="commentText">
             {{ comment.body | linebreaks }}
           </div>
           {% if not comment.approved and comment.author == user %}
@@ -115,11 +116,11 @@
           {% endif %}
           {% if user.is_authenticated and comment.author == user %}
           <button class="btn btn-delete deleteCommentButtons" comment_id="{{ comment.id }}">Delete</button>
-          <button class="btn btn-edit editButtonsComments" comment_id="{{ comment.id }}">Edit</button>
+          <button class="btn btn-edit editButtons" comment_id="{{ comment.id }}">Edit</button>
           {% endif %}
         </div>
         <hr>
-        <!-- Our for loop ends here -->
+        <!-- For loop ends here -->
         {% endfor %}
       </div>
     </div>
