@@ -54,10 +54,10 @@ a:hover {
 /* reviews_detail */
 
 .background-image {
-    background: url('/static/images/background.jpg') no-repeat center center fixed;
+    background: url('/static/images/background.jpg') no-repeat fixed;
     height: 100%;
+    overflow: scroll;
 }
-
 
 /* about me page and image */
 
