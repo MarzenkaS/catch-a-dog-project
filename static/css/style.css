@@ -49,6 +49,11 @@ a:hover {
 
 .introduction {
     width: 45%;
+    margin-left: 10%;
+}
+
+.welcome-text {
+    margin-left: 10%;
 }
 
 
