@@ -42,13 +42,16 @@
     <div class="col-md-4 card mb-4 mt-3">
       <div class="card-body">
         {% if user.is_authenticated %}
-        <h3 class="text-decoration-underline">Add your review:</h3>
+        <h3 class="text-decoration-underline">Edit your review:</h3>
         <p>Posting as: {{ user.username }}</p>
-        <form id="reviewForm" method="post" style="margin-top: 1.3em;">
+
+        <form id="reviewForm" method="post">
           {{ review_form | crispy }}
           {% csrf_token %}
-          <button id="submitButtonReview" type="submit" class="btn btn-signup btn-lg">Submit</button>
+          <input type="hidden" name="edit_review" value="1"> <!-- Hidden field to identify edit request -->
+          <button type="submit" class="btn btn-signup btn-lg">Update</button>
         </form>
+
         {% else %}
         <p>Log in to update your review</p>
         {% endif %}
