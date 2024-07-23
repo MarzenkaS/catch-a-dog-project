@@ -109,9 +109,8 @@ def add_review(request):
             review = review_form.save(commit=False)
             review.author = request.user
             review.save()
-            messages.success(request, 'Review submitted')
-            return redirect('reviews_detail', pk=review.pk)
-            # Redirect to review detail page
+            messages.success(request, 'Review has been added')
+            return redirect('home')
     else:
         review_form = ReviewForm()
 
