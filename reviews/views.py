@@ -33,7 +33,7 @@ def reviews_detail(request, pk):
                 updated_review = review_form.save(commit=False)
                 updated_review.approved = False
                 updated_review.save()
-                messages.success(request, 'Review updated and awaiting approval')
+                messages.success(request, 'Review updated')
                 return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
             else:
                 messages.error(request, 'Error updating review!')
