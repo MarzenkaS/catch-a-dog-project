@@ -20,9 +20,8 @@
           <hr>
         </div>
         
-        <p class="approval">You added this review</p>
-        
         {% if user.is_authenticated and review.author == user %}
+        <!-- Display buttons for the review author -->
         <button class="btn deleteReviewButtons review" review_id="{{ review.id }}">Delete</button>
         <button class="btn editReviewButtons review reviewText editReviewButtons" review_id="{{ review.id }}">Edit</button>
         {% endif %}
@@ -32,22 +31,30 @@
     <!-- Creating form for updating review -->
     <div class="col-md-4 card mb-4 mt-3">
       <div class="card-body">
-        {% if user.is_authenticated and review.author == user %}
-        <h3 class="text-decoration-underline">Edit your review:</h3>
-        <p>Posting as: {{ user.username }}</p>
-        <form id="reviewForm" method="post">
-          {{ review_form | crispy }}
-          {% csrf_token %}
-          <input type="hidden" name="edit_review" value="1"> <!-- Hidden field to identify edit request -->
-          <button type="submit" class="btn btn-signup btn-lg">Update</button>
-        </form>
+        {% if user.is_authenticated %}
+          {% if review.author == user %}
+            <!-- Form to edit the review if the user is the author -->
+            <h3 class="text-decoration-underline">Edit your review:</h3>
+            <p>Posting as: {{ user.username }}</p>
+            <form id="reviewForm" method="post">
+              {{ review_form | crispy }}
+              {% csrf_token %}
+              <input type="hidden" name="edit_review" value="1">
+              <button type="submit" class="btn btn-signup btn-lg">Update</button>
+            </form>
+          {% else %}
+            <!-- Message if the user is logged in but not the author -->
+            <p>You can leave a comment on this review.</p>
+          {% endif %}
         {% else %}
-        <p>Log in to add or update your review</p>
+          <!-- Message for not logged-in users -->
+          <p>Log in to add or update your review</p>
         {% endif %}
       </div>
     </div>
   </div>
 </div>
+
 
 <!-- Delete confirmation modal for reviews -->
 <div class="modal fade" id="deleteModalReview" tabindex="-1" aria-labelledby="deleteModalLabelReview"
@@ -99,11 +106,7 @@
           <div id="comment{{ comment.id }}" class="commentText">
             {{ comment.body | linebreaks }}
           </div>
-          {% if comment.author == user %}
-          <p class="approval">
-            You added this comment
-          </p>
-          {% endif %}
+          
           
           {% if user.is_authenticated and comment.author == user %}
           <button class="btn btn-delete deleteCommentButtons" comment_id="{{ comment.id }}">Delete</button>
