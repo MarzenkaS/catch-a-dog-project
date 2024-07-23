@@ -41,17 +41,15 @@
     <!-- Creating form for updating review -->
     <div class="col-md-4 card mb-4 mt-3">
       <div class="card-body">
-        {% if user.is_authenticated %}
+        {% if user.is_authenticated and review.author == user %}
         <h3 class="text-decoration-underline">Edit your review:</h3>
         <p>Posting as: {{ user.username }}</p>
-
         <form id="reviewForm" method="post">
           {{ review_form | crispy }}
           {% csrf_token %}
           <input type="hidden" name="edit_review" value="1"> <!-- Hidden field to identify edit request -->
           <button type="submit" class="btn btn-signup btn-lg">Update</button>
         </form>
-
         {% else %}
         <p>Log in to update your review</p>
         {% endif %}

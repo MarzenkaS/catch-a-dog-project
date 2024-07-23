@@ -121,18 +121,24 @@ def add_review(request):
 
 def review_edit(request, review_id):
     """
-    View to edit a review
+    View to edit reviews.
     """
     review = get_object_or_404(Reviews, pk=review_id)
 
+    # Check if the logged-in user is the author of the review
+    if review.author != request.user:
+        messages.error(request, "You do not have permission to edit this review.")
+        return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
+
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST, instance=review)
-        if review_form.is_valid() and review.author == request.user:
-            review = review_form.save(commit=False)
-            review.approved = False
-            review.save()
-            messages.success(request, 'Review updated and awaiting approval')
-            return HttpResponseRedirect(reverse('reviews_detail', args=[review.pk]))
+
+        if review_form.is_valid():
+            updated_review = review_form.save(commit=False)
+            updated_review.approved = False  # Optionally set to False if it requires re-approval
+            updated_review.save()
+            messages.success(request, 'Review Updated!')
+            return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
         else:
             messages.error(request, 'Error updating review!')
     else:
