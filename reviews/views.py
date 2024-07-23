@@ -20,10 +20,8 @@ def reviews_detail(request, pk):
 
     """
     review = get_object_or_404(Reviews, id=pk)
-    author = request.user
     comments = review.comments.all().order_by("-created_on")
     comment_count = review.comments.filter(approved=True).count()
-
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -47,7 +45,7 @@ def reviews_detail(request, pk):
             review.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Review submitted and awaiting approval'
+                'Review submitted'
             )
 
     review_form = ReviewForm()
@@ -67,10 +65,9 @@ def comment_edit(request, pk, comment_id):
     """
     View to edit comments
     """
-    review = get_object_or_404(Reviews, pk=pk)
-    comment = get_object_or_404(Comment, pk=comment_id)
-
     if request.method == "POST":
+        review = get_object_or_404(Reviews, pk=pk)
+        comment = get_object_or_404(Comment, pk=comment_id)
         comment_form = CommentForm(data=request.POST, instance=comment)
 
         if comment_form.is_valid() and comment.author == request.user:

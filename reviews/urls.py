@@ -15,11 +15,3 @@ urlpatterns = [
     path('reviews_detail/<int:pk>/delete_comment/<int:comment_id>',
          views.comment_delete, name='comment_delete'),
 ]
-
-
-    
-
-
-
-
-

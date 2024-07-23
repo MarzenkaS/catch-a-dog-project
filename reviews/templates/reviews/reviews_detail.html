@@ -28,9 +28,9 @@
           {{ review.content | safe }}
           <hr>
         </div>
-        {% if not review.approved and review.author == user %}
-        <p class="approval">This review is awaiting approval</p>
-        {% endif %}
+        
+        <p class="approval">You added this review</p>
+        
         {% if user.is_authenticated and review.author == user %}
         <button class="btn deleteReviewButtons review" review_id="{{ review.id }}">Delete</button>
         <button class="btn editReviewButtons review reviewText editReviewButtons" review_id="{{ review.id }}">Edit</button>
@@ -42,7 +42,7 @@
     <div class="col-md-4 card mb-4 mt-3">
       <div class="card-body">
         {% if user.is_authenticated %}
-        <h3 class="text-decoration-underline">Update your review:</h3>
+        <h3 class="text-decoration-underline">Add your review:</h3>
         <p>Posting as: {{ user.username }}</p>
         <form id="reviewForm" method="post" style="margin-top: 1.3em;">
           {{ review_form | crispy }}
@@ -93,7 +93,7 @@
 <!-- Displaying Comments -->
 <div class="container">
   <div class="row">
-    <div class="col-md-8 card mb-4  mt-3 ">
+    <div class="col-md-8 card mb-4 mt-3">
       <h3 class="text-decoration-underline">Comments:</h3>
       <div class="card-body">
         {% for comment in comments %}
@@ -141,6 +141,7 @@
     </div>
   </div>
 </div>
+
 
 <!-- Delete confirmation modal for comments -->
 <div class="modal fade" id="deleteModalComment" tabindex="-1" aria-labelledby="deleteModalLabelComment" aria-hidden="true">
