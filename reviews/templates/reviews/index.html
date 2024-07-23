@@ -3,19 +3,21 @@
 
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid background-image">
     <div class="row">
-        <!-- Reviews Column -->
+        
         <div class="col-12 mt-3 left">
-            <div class="row">
-                <h2 class="text-center text-decoration-underline">Welcome to my Catch a Dog<br><i
+            <div class="row mt-5 mb-5 text-white">
+                <h2 class="text-left text-decoration-underline mt-3 mb-5">Welcome to my Catch a Dog<br><i
                         class="fa-solid fa-dog" style="color: #2f15f4;"></i>
                     website!</h2><br>
-                <h3 class="text-center">A website dedicated to therapy and rehabilitation for animals. You can read and
-                    comment
-                    on others' reviews. If your dog or cat was my client and you want to share your opinion with others,
+                <h4 class="introduction">A website dedicated to therapy and rehabilitation for animals. You can read and
+                    comment on others' reviews. If your dog or cat was my client and you want to share your opinion with others,
                     please you are welcome to do so
-                    after logging in!</h3>
+                    after logging in!</h4>
+            </div>
+            <!-- Reviews Column -->
+            <div>
                 {% for reviews in object_list %}
                 <a href="{% url 'reviews_detail' reviews.id %}" class="reviews-link" aria-label="reviews-detail">
                     <div class="card mb-4">

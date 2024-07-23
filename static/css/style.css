@@ -45,23 +45,20 @@ a:hover {
     background-color: white;
 }
 
-/* reviews - home page */
+/* introduction */
 
-h2 {
-    margin-bottom: 20px;
-    margin-top: 20px;
+.introduction {
+    width: 50%;
 }
+
 
 /* reviews_detail */
 
-.background-image img {
-    
-    width: 600px;
-    height: 75%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-left: 45%;
+.background-image {
+    background: url('/static/images/background.jpg') no-repeat center center fixed;
+    height: 100%;
 }
+
 
 /* about me page and image */
 
