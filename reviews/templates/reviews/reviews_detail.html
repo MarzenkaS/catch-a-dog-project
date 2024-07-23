@@ -109,11 +109,11 @@
           <div id="comment{{ comment.id }}" class="commentText">
             {{ comment.body | linebreaks }}
           </div>
-          {% if not comment.approved and comment.author == user %}
+          
           <p class="approval">
-            This comment is awaiting approval
+            You added this comment
           </p>
-          {% endif %}
+          
           {% if user.is_authenticated and comment.author == user %}
           <button class="btn btn-delete deleteCommentButtons" comment_id="{{ comment.id }}">Delete</button>
           <button class="btn btn-edit editButtons" comment_id="{{ comment.id }}">Edit</button>

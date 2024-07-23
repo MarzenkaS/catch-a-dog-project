@@ -33,7 +33,7 @@ def reviews_detail(request, pk):
             comment.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Comment submitted and awaiting approval'
+                'Comment submitted!'
             )
 
     comment_form = CommentForm()

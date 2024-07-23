@@ -28,18 +28,20 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-marzenkas-catchadogproj-6s0h3jbty3i.ws-eu108.gitpod.io',
     '8000-marzenkas-catchadogproj-6s0h3jbty3i.ws-eu110.gitpod.io',
     '.herokuapp.com',
+    '8000-marzenkas-catchadogproj-i6vgc4jmxqp.ws.codeinstitute-ide.net',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://*.herokuapp.com",
     "https://*.gitpod.io",
     "https://8000-marzenkas-catchadogproj-6s0h3jbty3i.ws-eu108.gitpod.io",
+    "https://8000-marzenkas-catchadogproj-i6vgc4jmxqp.ws.codeinstitute-ide.net",
 ]
 
 
