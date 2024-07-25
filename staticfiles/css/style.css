@@ -55,8 +55,8 @@ a:hover {
 
 .background-image {
     background: url('/static/images/background.jpg') no-repeat fixed;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    background-size: cover;
+    background-position: center;
 }
 
 /* about me page and image */
