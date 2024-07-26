@@ -45,14 +45,7 @@ a:hover {
     background-color: white;
 }
 
-/* introduction */
-
-.welcome-text {
-    margin-left: 7%;
-}
-
-
-/* reviews_detail */
+/* home page */
 
 .background-image {
     background: url('/static/images/background.jpg') no-repeat fixed;
@@ -60,6 +53,12 @@ a:hover {
     background-position: center;
     height: auto;
     overflow: hidden;
+}
+
+/* introduction */
+
+.welcome-text {
+    margin-left: 7%;
 }
 
 /* about me page and image */
@@ -150,7 +149,7 @@ a:hover {
  /* pagination */
 
  .pagination {
-    margin-bottom: 5%;
+    margin-bottom: 1%;
  }
 
  /* buttons */
