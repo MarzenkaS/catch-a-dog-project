@@ -1,5 +1,8 @@
 from . import views
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('', views.ReviewsList.as_view(), name='home'),
@@ -15,3 +18,6 @@ urlpatterns = [
     path('reviews_detail/<int:pk>/delete_comment/<int:comment_id>',
          views.comment_delete, name='comment_delete'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

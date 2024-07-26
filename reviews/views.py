@@ -24,11 +24,11 @@ def reviews_detail(request, pk):
 
     # Initialize forms
     comment_form = CommentForm()
-    review_form = ReviewForm()
+    review_form = ReviewForm(instance=review)
 
     if request.method == "POST":
         if 'edit_review' in request.POST:  # Handle review update
-            review_form = ReviewForm(data=request.POST, instance=review)
+            review_form = ReviewForm(data=request.POST, files=request.FILES, instance=review)
             if review_form.is_valid() and review.author == request.user:
                 updated_review = review_form.save(commit=False)
                 updated_review.approved = False
