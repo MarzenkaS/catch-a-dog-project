@@ -51,15 +51,19 @@ a:hover {
     margin-left: 7%;
 }
 
+
 /* reviews_detail */
 
 .background-image {
     background: url('/static/images/background.jpg') no-repeat fixed;
     background-size: cover;
     background-position: center;
+    height: auto;
+    overflow: hidden;
 }
 
 /* about me page and image */
+
 
 .image-about img {
     height: 300px;
