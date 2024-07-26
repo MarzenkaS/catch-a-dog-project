@@ -104,7 +104,7 @@ def add_review(request):
     View to add a new review
     """
     if request.method == "POST":
-        review_form = ReviewForm(data=request.POST)
+        review_form = ReviewForm(data=request.POST, files=request.FILES)
         if review_form.is_valid():
             review = review_form.save(commit=False)
             review.author = request.user
