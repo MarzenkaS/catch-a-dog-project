@@ -168,3 +168,11 @@ MEDIA_URL = 'https://res.cloudinary.com/dguqjbr12/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Cloudinary
+
+CLOUDINARY = {
+    'cloud_name': 'your_cloud_name',
+    'api_key': 'your_api_key',
+    'api_secret': 'your_api_secret',
+}
