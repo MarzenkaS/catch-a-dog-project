@@ -24,11 +24,11 @@ def reviews_detail(request, pk):
 
     # Initialize forms
     comment_form = CommentForm()
-    review_form = ReviewForm(instance=review)
+    review_form = ReviewForm()
 
     if request.method == "POST":
         if 'edit_review' in request.POST:  # Handle review update
-            review_form = ReviewForm(data=request.POST, files=request.FILES, instance=review)
+            review_form = ReviewForm(data=request.POST, instance=review)
             if review_form.is_valid() and review.author == request.user:
                 updated_review = review_form.save(commit=False)
                 updated_review.approved = False
@@ -104,7 +104,7 @@ def add_review(request):
     View to add a new review
     """
     if request.method == "POST":
-        review_form = ReviewForm(data=request.POST, files=request.FILES)
+        review_form = ReviewForm(data=request.POST)
         if review_form.is_valid():
             review = review_form.save(commit=False)
             review.author = request.user
