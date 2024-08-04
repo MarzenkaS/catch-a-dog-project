@@ -63,21 +63,24 @@ def comment_edit(request, pk, comment_id):
     """
     View to edit comments
     """
+    review = get_object_or_404(Reviews, pk=pk)
+    comment = get_object_or_404(Comment, pk=comment_id)
+
     if request.method == "POST":
-        review = get_object_or_404(Reviews, pk=pk)
-        comment = get_object_or_404(Comment, pk=comment_id)
         comment_form = CommentForm(data=request.POST, instance=comment)
 
-        if comment_form.is_valid() and comment.author == request.user:
-            comment = comment_form.save(commit=False)
-            comment.reviews = review
-            comment.approved = False
-            comment.save()
-            messages.success(request, 'Comment Updated!')
-            return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
+        if comment_form.is_valid():
+            if comment.author == request.user or request.user.is_superuser:
+                updated_comment = comment_form.save(commit=False)
+                updated_comment.reviews = review
+                updated_comment.approved = False
+                updated_comment.save()
+                messages.success(request, 'Comment Updated!')
+                return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
+            else:
+                messages.error(request, 'You do not have permission to edit this comment!')
         else:
             messages.error(request, 'Error updating comment!')
-
     else:
         comment_form = CommentForm(instance=comment)
 
