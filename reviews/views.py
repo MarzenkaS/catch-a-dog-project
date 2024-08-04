@@ -20,7 +20,7 @@ def reviews_detail(request, pk):
     """
     review = get_object_or_404(Reviews, id=pk)
     comments = review.comments.all().order_by("-created_on")
-    comment_count = review.comments.count()  # Count all comments, regardless of approval status
+    comment_count = review.comments.count()
 
     # Initialize forms
     comment_form = CommentForm()
@@ -34,7 +34,8 @@ def reviews_detail(request, pk):
                 updated_review.approved = False
                 updated_review.save()
                 messages.success(request, 'Review updated')
-                return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
+                return HttpResponseRedirect(
+                    reverse('reviews_detail', args=[pk]))
             else:
                 messages.error(request, 'Error updating review!')
         else:  # Handle comment submission
@@ -45,7 +46,8 @@ def reviews_detail(request, pk):
                 comment.reviews = review
                 comment.save()
                 messages.success(request, 'Comment submitted!')
-                return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
+                return HttpResponseRedirect(
+                    reverse('reviews_detail', args=[pk]))
 
     return render(request, "reviews/reviews_detail.html",
                   {
@@ -87,7 +89,6 @@ def comment_delete(request, pk, comment_id):
     """
     View to delete comment
     """
-    review = get_object_or_404(Reviews, pk=pk)
     comment = get_object_or_404(Comment, pk=comment_id)
 
     if comment.author == request.user:
@@ -126,18 +127,21 @@ def review_edit(request, review_id):
 
     # Check if the logged-in user is the author of the review
     if review.author != request.user:
-        messages.error(request, "You do not have permission to edit this review.")
-        return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
+        messages.error(
+            request, "You do not have permission to edit this review.")
+        return HttpResponseRedirect(
+            reverse('reviews_detail', args=[review_id]))
 
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST, instance=review)
 
         if review_form.is_valid():
             updated_review = review_form.save(commit=False)
-            updated_review.approved = False  # Optionally set to False if it requires re-approval
+            updated_review.approved = False
             updated_review.save()
             messages.success(request, 'Review Updated!')
-            return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
+            return HttpResponseRedirect(
+                reverse('reviews_detail', args=[review_id]))
         else:
             messages.error(request, 'Error updating review!')
     else:
