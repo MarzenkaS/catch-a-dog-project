@@ -54,12 +54,19 @@ def reviews_detail(request, pk):
                 return HttpResponseRedirect(
                     reverse('reviews_detail', args=[pk]))
 
+    # Check if the form should be displayed for editing
+    if 'edit' in request.GET:
+        show_edit_form = True
+    else:
+        show_edit_form = False
+
     return render(request, "reviews/reviews_detail.html", {
         "review": review,
         "comments": comments,
         "comment_count": comment_count,
         "comment_form": comment_form,
         "review_form": review_form,
+        "show_edit_form": show_edit_form,
     })
 
 
