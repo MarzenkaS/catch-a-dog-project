@@ -35,9 +35,12 @@ def reviews_detail(request, pk):
                     updated_review.approved = False
                     updated_review.save()
                     messages.success(request, 'Review updated')
-                    return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
+                    return HttpResponseRedirect(
+                        reverse('reviews_detail', args=[pk]))
                 else:
-                    messages.error(request, 'You do not have permission to edit this review!')
+                    messages.error(
+                        request,
+                        'You do not have permission to edit this review!')
             else:
                 messages.error(request, 'Error updating review!')
         else:  # Handle comment submission
@@ -48,7 +51,8 @@ def reviews_detail(request, pk):
                 comment.reviews = review
                 comment.save()
                 messages.success(request, 'Comment submitted!')
-                return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
+                return HttpResponseRedirect(
+                    reverse('reviews_detail', args=[pk]))
 
     return render(request, "reviews/reviews_detail.html", {
         "review": review,
@@ -76,9 +80,12 @@ def comment_edit(request, pk, comment_id):
                 updated_comment.approved = False
                 updated_comment.save()
                 messages.success(request, 'Comment Updated!')
-                return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
+                return HttpResponseRedirect(
+                    reverse('reviews_detail', args=[pk]))
             else:
-                messages.error(request, 'You do not have permission to edit this comment!')
+                messages.error(
+                    request,
+                    'You do not have permission to edit this comment!')
         else:
             messages.error(request, 'Error updating comment!')
     else:
@@ -93,11 +100,12 @@ def comment_delete(request, pk, comment_id):
     """
     comment = get_object_or_404(Comment, pk=comment_id)
 
-    if comment.author == request.user:
+    if request.user.is_superuser or comment.author == request.user:
         comment.delete()
         messages.success(request, 'Comment deleted!')
     else:
-        messages.error(request, 'You can only delete your own comments!')
+        messages.error(
+            request, 'You do not have permission to delete this comment.')
 
     return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
 
@@ -129,8 +137,10 @@ def review_edit(request, review_id):
 
     # Check if the logged-in user is the author of the review or a superuser
     if review.author != request.user and not request.user.is_superuser:
-        messages.error(request, "You do not have permission to edit this review.")
-        return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
+        messages.error(
+            request, "You do not have permission to edit this review.")
+        return HttpResponseRedirect(
+            reverse('reviews_detail', args=[review_id]))
 
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST, instance=review)
@@ -140,16 +150,20 @@ def review_edit(request, review_id):
             updated_review.approved = False
             updated_review.save()
             messages.success(request, 'Review Updated!')
-            return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
+            return HttpResponseRedirect(
+                reverse('reviews_detail', args=[review_id]))
         else:
-            messages.error(request, 'Error updating review! Form is not valid.')
+            messages.error(
+                request, 'Error updating review! Form is not valid.')
             for field, errors in review_form.errors.items():
                 for error in errors:
                     messages.error(request, f"Error in {field}: {error}")
     else:
         review_form = ReviewForm(instance=review)
 
-    return render(request, 'reviews/review_edit.html', {'review_form': review_form, 'review': review})
+    return render(
+        request, 'reviews/review_edit.html', {
+            'review_form': review_form, 'review': review})
 
 
 def review_delete(request, pk, review_id):
