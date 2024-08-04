@@ -18,8 +18,8 @@
           {{ review.content | safe }}
           <hr>
         </div>
-
-        {% if user.is_authenticated and review.author == user %}
+        
+        {% if user.is_authenticated and review.author == user or user.is_superuser %}
         <!-- Display buttons for the review author -->
         <button class="btn deleteReviewButtons review" review_id="{{ review.id }}">Delete</button>
         <button class="btn editReviewButtons review reviewText editReviewButtons"
@@ -32,7 +32,7 @@
     <div class="col-md-4 card mb-4 mt-3">
       <div class="card-body">
         {% if user.is_authenticated %}
-        {% if review.author == user %}
+        {% if review.author == user or user.is_superuser %}
         <!-- Form to edit the review if the user is the author -->
         <h3 class="text-decoration-underline">Edit your review:</h3>
         <p>Posting as: {{ user.username }}</p>
@@ -106,8 +106,7 @@
             {{ comment.body | linebreaks }}
           </div>
 
-
-          {% if user.is_authenticated and comment.author == user %}
+          {% if user.is_authenticated and comment.author == user or user.is_superuser %}
           <button class="btn btn-delete deleteCommentButtons" comment_id="{{ comment.id }}">Delete</button>
           <button class="btn btn-edit editButtons" comment_id="{{ comment.id }}">Edit</button>
           {% endif %}

@@ -24,18 +24,20 @@ def reviews_detail(request, pk):
 
     # Initialize forms
     comment_form = CommentForm()
-    review_form = ReviewForm()
+    review_form = ReviewForm(instance=review)
 
     if request.method == "POST":
         if 'edit_review' in request.POST:  # Handle review update
             review_form = ReviewForm(data=request.POST, instance=review)
-            if review_form.is_valid() and review.author == request.user:
-                updated_review = review_form.save(commit=False)
-                updated_review.approved = False
-                updated_review.save()
-                messages.success(request, 'Review updated')
-                return HttpResponseRedirect(
-                    reverse('reviews_detail', args=[pk]))
+            if review_form.is_valid():
+                if review.author == request.user or request.user.is_superuser:
+                    updated_review = review_form.save(commit=False)
+                    updated_review.approved = False
+                    updated_review.save()
+                    messages.success(request, 'Review updated')
+                    return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
+                else:
+                    messages.error(request, 'You do not have permission to edit this review!')
             else:
                 messages.error(request, 'Error updating review!')
         else:  # Handle comment submission
@@ -46,18 +48,15 @@ def reviews_detail(request, pk):
                 comment.reviews = review
                 comment.save()
                 messages.success(request, 'Comment submitted!')
-                return HttpResponseRedirect(
-                    reverse('reviews_detail', args=[pk]))
+                return HttpResponseRedirect(reverse('reviews_detail', args=[pk]))
 
-    return render(request, "reviews/reviews_detail.html",
-                  {
-                   "review": review,
-                   "comments": comments,
-                   "comment_count": comment_count,
-                   "comment_form": comment_form,
-                   "review_form": review_form,
-                  }
-                  )
+    return render(request, "reviews/reviews_detail.html", {
+        "review": review,
+        "comments": comments,
+        "comment_count": comment_count,
+        "comment_form": comment_form,
+        "review_form": review_form,
+    })
 
 
 def comment_edit(request, pk, comment_id):
@@ -125,12 +124,10 @@ def review_edit(request, review_id):
     """
     review = get_object_or_404(Reviews, pk=review_id)
 
-    # Check if the logged-in user is the author of the review
-    if review.author != request.user:
-        messages.error(
-            request, "You do not have permission to edit this review.")
-        return HttpResponseRedirect(
-            reverse('reviews_detail', args=[review_id]))
+    # Check if the logged-in user is the author of the review or a superuser
+    if review.author != request.user and not request.user.is_superuser:
+        messages.error(request, "You do not have permission to edit this review.")
+        return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
 
     if request.method == "POST":
         review_form = ReviewForm(data=request.POST, instance=review)
@@ -140,23 +137,26 @@ def review_edit(request, review_id):
             updated_review.approved = False
             updated_review.save()
             messages.success(request, 'Review Updated!')
-            return HttpResponseRedirect(
-                reverse('reviews_detail', args=[review_id]))
+            return HttpResponseRedirect(reverse('reviews_detail', args=[review_id]))
         else:
-            messages.error(request, 'Error updating review!')
+            messages.error(request, 'Error updating review! Form is not valid.')
+            for field, errors in review_form.errors.items():
+                for error in errors:
+                    messages.error(request, f"Error in {field}: {error}")
     else:
         review_form = ReviewForm(instance=review)
 
-    return render(request, 'review_edit.html', {'review_form': review_form})
+    return render(request, 'reviews/review_edit.html', {'review_form': review_form, 'review': review})
 
 
 def review_delete(request, pk, review_id):
     """
-    view to delete reviews
+    View to delete reviews.
     """
     review = get_object_or_404(Reviews, pk=review_id)
 
-    if review.author == request.user:
+    # Check if the logged-in user is the author of the review or a superuser
+    if review.author == request.user or request.user.is_superuser:
         review.delete()
         messages.success(request, 'Review deleted!')
     else:
