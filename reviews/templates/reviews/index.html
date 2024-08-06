@@ -24,10 +24,10 @@
             <div>
                 {% for reviews in object_list %}
                 <a href="{% url 'reviews_detail' reviews.id %}" class="reviews-link" aria-label="reviews-detail">
-                    <div class="card mb-4">
+                    <div class="card mb-4 mx-5">
                         <div class="card-body text-center">
                             <h3 class="text-decoration-underline">{{reviews}}</h3><br>
-                            <p>{{reviews.content | safe}}</p>
+                            <p class="px-lg-5 px-md-5">{{reviews.content | safe}}</p>
                             <span class="card-text text-muted h6">{{ reviews.created_on}}</span>
                         </div>
                     </div>
