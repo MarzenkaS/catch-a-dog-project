@@ -2,7 +2,7 @@
 
 My inspiration for creating this Django project was my sister's profession. She is a physiotherapist for dogs and cats. I wanted to create a website where pet owners can find the information they need to know about therapy she is providing. Another important thing is the ability to read other people's opinions and comments, as well as add your own after logging in.
 
-![responsive mockup](https://res.cloudinary.com/dguqjbr12/image/upload/v1711357050/catch%20a%20dog%20readme/responsive_uzx4fe.png)
+![responsive mockup](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965266/catch%20a%20dog%202/responsive_kezrms.png)
 
 [Link to live site](https://catch-a-dog-99383fa22fc6.herokuapp.com)
 
@@ -42,10 +42,10 @@ Navigation Bar
 - Collapsible burger menu with drop-down on small to medium screens
 - Active link is black, hovered icon is black and underlined, not active link is white
 
-![nav.loggedout](https://res.cloudinary.com/dguqjbr12/image/upload/v1711361030/catch%20a%20dog%20readme/nav.loggedout_pag7xo.png)
-![nav.loggedin](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359029/catch%20a%20dog%20readme/nav.loggedin_xfjkvp.png)
-![burger.menu](https://res.cloudinary.com/dguqjbr12/image/upload/v1711361536/catch%20a%20dog%20readme/burger.menu_qyoqcz.png)
-![burger.menu1](https://res.cloudinary.com/dguqjbr12/image/upload/v1711361528/catch%20a%20dog%20readme/burger.menu1_mfkpvw.png)
+![nav.loggedout](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965453/catch%20a%20dog%202/navbar1_rwretr.png)
+![nav.loggedin](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965266/catch%20a%20dog%202/navbar_ehlcuq.png)
+![burger.menu](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965650/catch%20a%20dog%202/burger_kiiei6.png)
+![burger.menu1](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965650/catch%20a%20dog%202/burger1_uyz8zp.png)
 
 Register
 - Allows user to create an account
@@ -73,6 +73,7 @@ Logout
 
 Add new review
 - An authenticated user from nav bar can navigate to add review page
+- Admin can delete and edit user's reviews
 - Afte adding review and clicking Submit button will see confirmation
 - User can delete or edit and update own review
 - Confirmation message about delete and update will be shown to a user
@@ -89,27 +90,26 @@ Home page
 - Below each user can see reviews in order from the newest
 - Paginated list of reviews
 
-![home](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359026/catch%20a%20dog%20readme/home.page_yio1q7.png)
+![home](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965266/catch%20a%20dog%202/home_zjchzu.png)
 
 Review detail
 - User even not registered can open single review on separate page to see it in detail
 - Each page displays review with author, date and time of updatig and number of comments
 - User also can see all attached to review comments and by who and when were written
 
-![review detail](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359038/catch%20a%20dog%20readme/review.detail_djdjwo.png)
-![review with comments](https://res.cloudinary.com/dguqjbr12/image/upload/v1711374325/catch%20a%20dog%20readme/review.with.comments_smlkqe.png)
+![review detail](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965266/catch%20a%20dog%202/review.comment_gtxmul.png)
+![review with comments](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965266/catch%20a%20dog%202/review.comment.logout_p789tg.png)
 
 Comments
 - Only authenticated user can add comment
-- Comment has to be approved by admin
 - User can delete or edit and update own comment
 - Confirmation message about delete and update will be shown to a user
 
 ![comments form](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359058/catch%20a%20dog%20readme/comments_zcxgei.png)
-![comment submitted](https://res.cloudinary.com/dguqjbr12/image/upload/v1711375601/catch%20a%20dog%20readme/comment.submitted_dsgafe.png)
-![edit comment](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359021/catch%20a%20dog%20readme/edit.comment_zzcyk7.png)
+
+
 ![comment updated](https://res.cloudinary.com/dguqjbr12/image/upload/v1711375606/catch%20a%20dog%20readme/comment.updated_vmobot.png)
-![delete comment](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359015/catch%20a%20dog%20readme/delete.comment_czxtuy.png)
+
 ![comment deleted](https://res.cloudinary.com/dguqjbr12/image/upload/v1711375597/catch%20a%20dog%20readme/comment.deleted_bhqcfn.png)
 
 Footer
@@ -126,9 +126,9 @@ About page
 - Section with email address and social media through which user can contact
 - A few photos from therapy with dog patients
 
-![about](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359056/catch%20a%20dog%20readme/about_xglzux.png)
-![contact](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359012/catch%20a%20dog%20readme/contact_ainpbz.png)
-![gallery](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359063/catch%20a%20dog%20readme/gallery_pr7kww.png)
+![about](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965265/catch%20a%20dog%202/about_kevqdv.png)
+![offer](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965265/catch%20a%20dog%202/about1_sa858x.png)
+![gallery](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965266/catch%20a%20dog%202/about2_rets2j.png)
 
 ### Future Features
 
