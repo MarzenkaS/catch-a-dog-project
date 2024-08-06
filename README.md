@@ -51,7 +51,7 @@ Register
 - Allows user to create an account
 - Username, password and password confirmation are required, email (optional)
 
-![Sign up](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359035/catch%20a%20dog%20readme/register_pllhtg.png)
+![Sign up](https://res.cloudinary.com/dguqjbr12/image/upload/v1722967351/catch%20a%20dog%202/register_ey3cfy.png)
 
 Login
 - For registered already user
@@ -60,35 +60,35 @@ Login
 - After signed in, user see confirmation
 - When username or password are incorrect, user will be informed
 
-![Sign in](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359047/catch%20a%20dog%20readme/signin_ctyrmv.png)
-![sign in as](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359041/catch%20a%20dog%20readme/signedin_u14mpd.png)
-![wrong details](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359053/catch%20a%20dog%20readme/wrong.password_vhmtwq.png)
+![Sign in](https://res.cloudinary.com/dguqjbr12/image/upload/v1722967346/catch%20a%20dog%202/login_qj1tnr.png)
 
 Logout
 - After user clicks on logout link in nav bar, will see confirm form
 - Then user will be redirected to home page with confirmation message about being signed out
 
-![sign out](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359009/catch%20a%20dog%20readme/confirm.signout_yliews.png)
-![sign out confirmation](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359044/catch%20a%20dog%20readme/signedout_i3m1tv.png)
+![sign out](https://res.cloudinary.com/dguqjbr12/image/upload/v1722967343/catch%20a%20dog%202/logout_phtw7l.png)
+
 
 Add new review
 - An authenticated user from nav bar can navigate to add review page
 - Admin can delete and edit user's reviews
-- Afte adding review and clicking Submit button will see confirmation
+- After adding review and clicking Submit button will see confirmation
 - User can delete or edit and update own review
 - Confirmation message about delete and update will be shown to a user
+- After clicking edit button under review, user can see on right side form with review for editing
 
 ![add review](https://res.cloudinary.com/dguqjbr12/image/upload/v1711366236/catch%20a%20dog%20readme/add.review1_fjpcno.png)
 ![review submitted](https://res.cloudinary.com/dguqjbr12/image/upload/v1711373137/catch%20a%20dog%20readme/review.submitted_ijewzh.png)
-![delete review](https://res.cloudinary.com/dguqjbr12/image/upload/v1711359018/catch%20a%20dog%20readme/delete.review_edtjxs.png)
+![delete review](https://res.cloudinary.com/dguqjbr12/image/upload/v1722967847/catch%20a%20dog%202/review.delete_pxuik5.png)
 ![review deleted](https://res.cloudinary.com/dguqjbr12/image/upload/v1711373125/catch%20a%20dog%20readme/review.deleted_qgjp8n.png)
-![edit review]()
-![review updated]()
+![edit review](https://res.cloudinary.com/dguqjbr12/image/upload/v1722967848/catch%20a%20dog%202/review.edit_mkzcck.png)
+![review updated](https://res.cloudinary.com/dguqjbr12/image/upload/v1722967846/catch%20a%20dog%202/review.updated_co82vs.png)
 
 Home page
 - Includes welcome paragraph with instruction and short introduction to website
 - Below each user can see reviews in order from the newest
 - Paginated list of reviews
+- User can click each review to see details in separately page
 
 ![home](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965266/catch%20a%20dog%202/home_zjchzu.png)
 
