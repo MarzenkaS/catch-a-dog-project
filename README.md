@@ -68,6 +68,13 @@ Logout
 
 ![sign out](https://res.cloudinary.com/dguqjbr12/image/upload/v1722967343/catch%20a%20dog%202/logout_phtw7l.png)
 
+Contact
+- User can send a mesage using contact form
+- After sending message user will see confirmation on success page
+
+![contact](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965265/catch%20a%20dog%202/contact_t2pwtf.png)
+![success](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965269/catch%20a%20dog%202/success_vtribd.png)
+
 
 Add new review
 - An authenticated user from nav bar can navigate to add review page
@@ -167,6 +174,8 @@ Update: An authenticated user can edit and update own comments
 
 Delete: An authenticated user can delete own comments
 
+
+Admin is able to delete and edit user's reviews and comments.
 Features visualized here [Existing Features](#existing-features)
 
 ## Testing
@@ -194,7 +203,7 @@ For solving problem with duplicate ID I just changed value. I removed review_id 
 
 ![errors reviews detail1](https://res.cloudinary.com/dguqjbr12/image/upload/v1711395770/catch%20a%20dog%20readme/html.reviews.detail1_dmceww.png)
 
-After removing review_id from 'buttons' my buttons didn't work so I left it.
+Error with review_id exist becausse each review has own number so I had to left this. 
 
 - About me page
 
@@ -206,12 +215,27 @@ To fix this errors I removed 'br' tags from line where it is marked. Size for lo
 
 The 'font' element, used to define the font face, size and color is no longer valid in HTML5. Instead, I should style in but content was written in admin panel.
 
+- Contact us
+
+No errors or warnings
+
+
 CSS W3C validator
 
 No errors
 ![css validator](https://res.cloudinary.com/dguqjbr12/image/upload/v1711379699/catch%20a%20dog%20readme/css_fc1kxa.png)
 
 JavaScript JSHint
+
+No errors only one undefined variable bootstrap - this is a custom bootstrap variable and did not need to be defined inside the script.
+
+- comments.js
+
+![comments js](https://res.cloudinary.com/dguqjbr12/image/upload/v1722970327/catch%20a%20dog%202/js.comments_lr28cs.png)
+
+- reviews.js
+
+![reviews js](https://res.cloudinary.com/dguqjbr12/image/upload/v1722970326/catch%20a%20dog%202/js.reviews_j5jsy7.png)
 
 
 Python CI Python Linter
@@ -223,6 +247,10 @@ No errors in admin.py, urls.py, models.py, views.py
 - My dog project app
 
 No errors in settings.py and urls.py
+
+- Contact app
+
+No errors in forms.py, urls.py, views.py
 
 - Reviews app
 
