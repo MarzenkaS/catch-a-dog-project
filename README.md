@@ -86,7 +86,7 @@ Add new review
 
 ![add review](https://res.cloudinary.com/dguqjbr12/image/upload/v1711366236/catch%20a%20dog%20readme/add.review1_fjpcno.png)
 ![review submitted](https://res.cloudinary.com/dguqjbr12/image/upload/v1711373137/catch%20a%20dog%20readme/review.submitted_ijewzh.png)
-![delete review](https://res.cloudinary.com/dguqjbr12/image/upload/v1722967847/catch%20a%20dog%202/review.delete_pxuik5.png)
+![delete review](https://res.cloudinary.com/dguqjbr12/image/upload/v1722971150/catch%20a%20dog%202/review.delete_hekb37.png)
 ![review deleted](https://res.cloudinary.com/dguqjbr12/image/upload/v1711373125/catch%20a%20dog%20readme/review.deleted_qgjp8n.png)
 ![edit review](https://res.cloudinary.com/dguqjbr12/image/upload/v1722967848/catch%20a%20dog%202/review.edit_mkzcck.png)
 ![review updated](https://res.cloudinary.com/dguqjbr12/image/upload/v1722967846/catch%20a%20dog%202/review.updated_co82vs.png)
@@ -277,11 +277,11 @@ I made a Lighthouse while being incognito. Had some issues to achieve high Acces
 
 1. Desktop
 
-![lighthouse desktop](https://res.cloudinary.com/dguqjbr12/image/upload/v1711387066/catch%20a%20dog%20readme/light.desktop_nntocp.png)
+![lighthouse desktop](https://res.cloudinary.com/dguqjbr12/image/upload/v1722972004/catch%20a%20dog%202/desktop.lighthouse_r850st.png)
 
 2. Mobile
 
-![lighthouse mobile](https://res.cloudinary.com/dguqjbr12/image/upload/v1711387069/catch%20a%20dog%20readme/light.mobile_iezohq.png)
+![lighthouse mobile](https://res.cloudinary.com/dguqjbr12/image/upload/v1722972329/catch%20a%20dog%202/mobile.lighthouse_ehffeq.png)
 
 ### Other browsers
 I tested my website on Google Chrome, Microsoft Edge, Mozilla Firefox and Safari. All functionality works.
