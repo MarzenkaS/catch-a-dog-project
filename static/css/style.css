@@ -154,6 +154,11 @@ a:hover {
 
  /* buttons */
 
+ .contact-button {
+    background-color: rgb(12, 25, 214);
+    color: white;
+ }
+
  .btn-signup {
     background-color: rgb(12, 25, 214);
     color: white;

@@ -7,13 +7,6 @@ def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Send an email (optional)
-            send_mail(
-                subject=f"Message from {form.cleaned_data['name']}",
-                message=form.cleaned_data['message'],
-                from_email=form.cleaned_data['email'],
-                recipient_list=['your_email@example.com'],
-            )
             return redirect('contact:success')
     else:
         form = ContactForm()

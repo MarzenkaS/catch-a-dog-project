@@ -3,12 +3,12 @@
 {% load static %}
 
 
-<div class="container mt-5 text-center">
+<div class="container col-12 mt-5 mb-2 text-center">
     <h1>Contact Us</h1>
-    <form method="post">
+    <form method="post" class="text-center">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Send</button>
+        <button type="submit" class="contact-button">Send</button>
     </form>
 </div>
 
