@@ -413,12 +413,30 @@ CLOUDINARY = {
 
 #### Allow Heroku as host
 
-- In ``settings.py`` add
+- In settings.py add
     ````
     ALLOWED_HOSTS = ['app-name.herokuapp.com', 'localhost', '.herokuapp.com',]
     ````
 
 ## Credits
+Sources I was using for that project:
+
+1- [Code Institute](https://learn.codeinstitute.net/dashboard) 
+
+2- [W3Schools](https://www.w3schools.com/)
+
+3- [Stackoverflow.com](https://stackoverflow.com/)
+
+4- [Diffchecker](https://www.diffchecker.com/)
+
+5- [JSHint.com](https://jshint.com/) ( Javascript validator)
+
+6- [CI Python Linter](https://pep8ci.herokuapp.com/) ( Python validator)
+
+7- [jigsaw](https://jigsaw.w3.org/css-validator/) (CSS vlidator)
+
+8- [Html validator](https://validator.w3.org/) (HTML validator)
+
 ### Content
 1. Description for all treatments from About me page comes from:
 - [Psielsko](https://psielsko.pl/)
