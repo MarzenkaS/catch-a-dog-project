@@ -1,6 +1,6 @@
 # Catch a Dog - Advanced Zoophysiotherapy & Fitness
 
-My inspiration for creating this Django project was my sister's profession. She is a physiotherapist for dogs and cats. I wanted to create a website where pet owners can find the information they need to know about therapy she is providing. Another important thing is the ability to read other people's opinions and comments, as well as add your own after logging in.
+My inspiration for creating this Django project came from my sister's profession. She is a dog and cat physiotherapist. I created a website to help her promote herself and for pet owners who are looking for information regarding therapy she provides. Another important thing is the ability to see other people's opinions and comments, as well as adding your own.
 
 ![responsive mockup](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965266/catch%20a%20dog%202/responsive_kezrms.png)
 
@@ -36,11 +36,15 @@ My inspiration for creating this Django project was my sister's profession. She 
 
 ## UI/UX
 
+The site is modeled on the walkthrough project ,Blog' created by Codeinstitute. However, two additional pages have been added, Contact and About. The review details page is more extensive and you can also see comments there.
+
 ### Agile
 
-### Wireframes
+This project was designed and built using the agile approach. I created a GitHub project and used the Kanban board method to divide project elements into user stories. All user stories include their required acceptance criterias refer to the project linked to above. Each story has also been labeled to how important a particular feature is for the project to function well.
 
 ### Site Goals
+
+The aim of the website is to provide the user with easy access to information. Each type of therapy is described in detail. You can easily contact the owner using the contact form or via social media to arrange a visit or for further questions. Thanks to the possibility of adding opinions and comments, users can interact with other pet owners and exchange views and experiences.
 
 ### 5 Planes of UX
 
