@@ -8,8 +8,12 @@ My inspiration for creating this Django project was my sister's profession. She 
 
 ## Table of Contents
 
-- [User Experience(UX)](#user-experience(UX))
+- [UI/UX)](#uiux)
   - [Agile](#agile)
+  - [Wireframes](#wireframes)
+  - [Site Goals](#site-goals)
+  - [5 Planes of UX](#5-planes-of-ux)
+  - [Visual Design Choices](#visual-design-choices)
 - [Features](#features)
     - [Existing Features](#existing-features)
     - [Future Features](#future-features)
@@ -30,8 +34,48 @@ My inspiration for creating this Django project was my sister's profession. She 
   - [Media](#media)     
    
 
-## User Experience(UX)
+## UI/UX
+
 ### Agile
+
+### Wireframes
+
+### Site Goals
+
+### 5 Planes of UX
+
+#### Surface
+The visual design of the product, including colors, typography, images, and overall aesthetic.
+
+A simple page that the user can navigate easily. Two colors dominate: white and blue for better clarity.
+Navigation is intuitive, regardless of whether the user uses a phone or laptop.
+
+#### Skeleton
+Focuses on the layout and arrangement of interface elements.
+
+Navigation is intuitive, regardless of whether the user uses a phone or laptop. Layout of website is familiar for most users. The navbar provides links to the main features and functions of the site, varying based on whether a user is authenticated or not. On small to medium screen sizes drop-down burger menu takes the place of the full navbar. On left side home button is a small logo. 
+below navbar user can read short introduction and instruction.
+The main content is presented as a list of reviews and each review can be separately open.
+A footer contains social media links which take the user to the appropriate page.
+About me page contains description about site owner, treatements described in detail and photo gallery.
+
+#### Structure
+Determines how the information and features are organized within the product.
+
+The site is modeled on the walkthrough project ,Blog' created by Codeinstitute. The user can easily navigate the site but to add reviews and comments there must be authentication. The user who is not logged in can only read. Anyone can contact the owner of the site using the contact form.
+
+#### Scope
+Defines what the product will do and what features and functions it will include.
+
+All minimum required features were implemented. User registration and login had to be implemented, as well as basic CRUD functionality for authenticated users.
+
+#### Strategy
+The foundation of the UX design process that defines the goals of the product and the needs of the users.
+
+The goal is to create a website where pet owners can find the information they need to know about therapy for their animals. Another important thing is the ability to read other people's opinions and comments, as well as add your own after logging in.
+
+### Visual Design Choices
+
 
 ## Features
 ### Existing Features
@@ -138,6 +182,8 @@ About page
 ![gallery](https://res.cloudinary.com/dguqjbr12/image/upload/v1722965266/catch%20a%20dog%202/about2_rets2j.png)
 
 ### Future Features
+
+I want to let users to be able to add images of their dogs. Another thing is to create collaboration form and like button for reviews.
 
 ## Database Design
 ### Database Model
