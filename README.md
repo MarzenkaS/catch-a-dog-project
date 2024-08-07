@@ -152,7 +152,7 @@ To build my models, I followed the walkthrough project created by the Code Insti
 I added required Custom Model not covered in the walkthrough - Reviews Model so each authenticated user can add own review.
 
 ### CRUD
-The CRUD principle I did for my original Reviews Model and Comment Model
+The CRUD principle I did for my original Reviews Model and Comment Model. Admin is able to delete and edit user's reviews and comments.
 
 CRUD Reviews Model:
 
@@ -175,7 +175,6 @@ Update: An authenticated user can edit and update own comments
 Delete: An authenticated user can delete own comments
 
 
-Admin is able to delete and edit user's reviews and comments.
 Features visualized here [Existing Features](#existing-features)
 
 ## Testing
@@ -295,6 +294,108 @@ Thanks to Bootstrap my project is responsive on all device sizes
 
 ## Deployment
 
+This project was deployed using [Heroku](https://heroku.com/), [Cloudinary](https://cloudinary.com/), [ElephantSQL](https://www.elephantsql.com/) and [Whitenoise](https://whitenoise.evans.io/en/latest/). Full list of libraries and technologies are listed in the section [Technologies Used](#technologies-used).
+
+#### Installing libraries
+
+Installed libraries :
+
+- **Gunicorn** (server used to run Django on Heroku): ``pip3 install django gunicorn``
+- **pyscopg2** (connects to PostgreSQL): ``pip 3 install dj_database_url pyscopg2``
+- **Cloudinary** (host static files and images): ``pip3 install dj3-cloudinary-storage``
+- **Whitenoise** (prevent issues with Heroku not rendering custom stylesheet): ``pip3 install whitenoise``
+
+#### Creating the Heroku App
+
+- Log into Heroku and go to the Dashboard
+- Click **New** and select **Create new app** from the drop-down
+- Name app appropriately and choose relevant region, then click **Create App**
+
+#### Create PostgreSQL database using ElephantSQL
+
+The database provided by Django can not be accessed by the deployed Heroku app and that's why creating database using ElephantSQl is needed.
+
+- Log into ElephantSQL and go to Dashboard
+- Click **Create New Instance**
+- Set up a plan by providing a Name (project name) and select a Plan (for this project the free plan "Tiny Turtle"). Tags are optional.
+- Click **Select Region** and choose appropriate Data center
+- Click **Review**, check all details and click **Create Instance**
+- Return to Dashboard on click on the name of the newly created instance
+- Copy the database URL from the details section
+
+#### Hiding sensitive information
+
+- Create env.py file
+- Add import os to env.py file and set environment variable **DATABASE_URL** to the URL copied from ElephantSQL 
+os.environ.setdefault("DATABASE_URL", "copiedURL")
+- Below, set **SECRET_KEY** variable os.environ.setdefault('SECRET_KEY', 'yoursecretkey')
+
+#### Update Settings
+
+- Add the following code at the top of settings.py to connect Django project to env.py:
+    ````
+      import os
+      import dj_database_url
+      if os.path.isfile('env.py'):
+          import env
+    ````
+- Remove insecure secret key provide by Django in settings.py and refer to variable in env.py instead SECRET_KEY = os.environ.get("SECRET_KEY")
+
+- To connect to new database, replace provided **DATABASE** variable with 
+    ````
+    DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+}
+    ````
+- Save and migrate all changes made
+
+#### Connecting Heroku to Database
+
+- In Heroku dashboard, go to **Settings** tab
+- Add three new config vars **DATABASE_URL** (value is database URL), **SECRET_KEY** (value is secret key string) and **PORT** (value "8000")
+
+#### Connect to Cloudinary
+
+- In Cloudinary dashboard, copy **API Environment variables**
+- In env.py file, add new variables
+````
+CLOUDINARY = {
+    'cloud_name': os.getenv('cloud_name'),
+    'api_key': os.getenv('api_key'),
+    'api_secret': os.getenv('api_secret'),
+}
+````
+- Add same 3 variables with values in Heroku config var
+- In settings.py, in INSTALLED_APPS list, above django.contrib.staticfiles add cloudinary_storage and below add cloudinary
+- To define Cloudinary as static file storage add the following to settings.py
+    ````
+    CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'your_cloud_name',
+    'API_KEY': 'your_api_key',
+    'API_SECRET': 'your_api_secret',
+}
+
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    ````
+
+#### Allow Heroku as host
+
+- In ``settings.py`` add
+    ````
+    ALLOWED_HOSTS = ['app-name.herokuapp.com', 'localhost', '.herokuapp.com',]
+    ````
+
 ## Credits
 ### Content
+1. Description for all treatments from About me page comes from:
+- [Psielsko](https://psielsko.pl/)
+- [Pieski umysl](https://pieski-umysl.pl/)
+- [Med store](https://med-store.pl/)
+- [Mvet](https://mvet.pl/)
+2. The icons comes from [Font Awesome](https://fontawesome.com/)
+3. Fonts are taken from [Google Fonts](https://fonts.google.com/)
+
 ### Media
+1. Bacground image for home page and logo is taken from my sister's [Facebook](https://www.facebook.com/zlappsafizjo)
+2. Images you can see on About me page also comes from my sister's [Facebook](https://www.facebook.com/zlappsafizjo)
+3. Responsive view for my project I have thanks to [Am I responsibe](https://ui.dev/amiresponsive) page
