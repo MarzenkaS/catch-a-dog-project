@@ -289,8 +289,41 @@ I tested my website on Google Chrome, Microsoft Edge, Mozilla Firefox and Safari
 Thanks to Bootstrap my project is responsive on all device sizes
 
 ### Bugs
+No bugs
 
 ## Technologies Used
+
+### Work Environments and Hosting
+
+- [draw.io](https://app.diagrams.net/) (ERD diagrams)
+- [GitHub](https://github.com/)
+- [GitPod](https://gitpod.io/) (IDE)
+- [Heroku](https://heroku.com/) (Site hosting)
+- [Cloudinary](https://cloudinary.com/) (Serving static media files)
+
+### Python Libraries
+
+- [Gunicorn](https://docs.djangoproject.com/en/4.1/howto/deployment/wsgi/gunicorn/) (Python HTTP server for WSGI applications)
+- [pyscopg2](https://pypi.org/project/psycopg2/) (PostgreSQL Database adapter)
+- [pillow](https://pypi.org/project/pillow/) (Python Imaging Library, used for image processing)
+
+### Django Libraries
+
+- [django-allauth](https://docs.allauth.org/en/latest/) (User authentication)
+- [django-crispy-forms](https://django-crispy-forms.readthedocs.io/en/latest/) (Control rendering behaviour of Django forms)
+
+### External Libraries and Applications
+
+- [Whitenoise](https://whitenoise.readthedocs.io/en/latest/) (Serving static non-media files)
+- [Summernote](https://pypi.org/project/django-summernote/) (WYSIWYG editor)
+
+### Database
+
+- [ElephantSQL](https://www.elephantsql.com/) (PostgreSQL database hosting)
+
+### Frontend and styling
+
+- [Bootstrap](https://getbootstrap.com/)
 
 ## Deployment
 
@@ -300,10 +333,10 @@ This project was deployed using [Heroku](https://heroku.com/), [Cloudinary](http
 
 Installed libraries :
 
-- **Gunicorn** (server used to run Django on Heroku): ``pip3 install django gunicorn``
-- **pyscopg2** (connects to PostgreSQL): ``pip 3 install dj_database_url pyscopg2``
-- **Cloudinary** (host static files and images): ``pip3 install dj3-cloudinary-storage``
-- **Whitenoise** (prevent issues with Heroku not rendering custom stylesheet): ``pip3 install whitenoise``
+- **Gunicorn** (server used to run Django on Heroku): pip3 install django gunicorn
+- **pyscopg2** (connects to PostgreSQL): pip 3 install dj_database_url pyscopg2
+- **Cloudinary** (host static files and images): pip3 install dj3-cloudinary-storage
+- **Whitenoise** (prevent issues with Heroku not rendering custom stylesheet): pip3 install whitenoise
 
 #### Creating the Heroku App
 
@@ -398,4 +431,4 @@ CLOUDINARY = {
 ### Media
 1. Bacground image for home page and logo is taken from my sister's [Facebook](https://www.facebook.com/zlappsafizjo)
 2. Images you can see on About me page also comes from my sister's [Facebook](https://www.facebook.com/zlappsafizjo)
-3. Responsive view for my project I have thanks to [Am I responsibe](https://ui.dev/amiresponsive) page
+3. Responsive view for my project I have thanks to [Am I Responsive](https://ui.dev/amiresponsive) page
