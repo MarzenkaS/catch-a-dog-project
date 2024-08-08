@@ -459,7 +459,6 @@ CLOUDINARY = {
 }
 
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-    ````
 
 #### Allow Heroku as host
 
